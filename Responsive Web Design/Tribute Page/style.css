@@ -1,0 +1,46 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #5A5756;
+}
+
+#main {
+    background-color: #E8EAE6;
+    border-radius: 20px;
+    width: 99%;
+    margin: 20px auto;
+    padding-top: 20px;
+}
+
+#title h1 {
+    font-size: 40px;
+}
+
+#img-div figure {
+    background-color: white;
+    padding: 20px 20px;
+}
+
+#img-div img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+#tribute-info {
+    width: 80%;
+    margin: 50px auto;
+    text-align: left;
+}
+
+#books {
+    width: 80%;
+    text-align: left;
+    margin: auto;
+}
+
+#readmore {
+    margin: auto;
+    margin-top: 40px;
+}
