@@ -46,6 +46,8 @@ main {
     top: 4rem;
     width: 100%;
     margin-left: 0;
+    display: flex;
+    flex-direction: column;
 }
 #cover {
     width: 100%;
@@ -135,7 +137,7 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 3rem;
+    margin-top: 3rem;
 }
 .price {
     margin: 2rem;
@@ -164,3 +166,82 @@ form {
     margin-top: auto;
     align-self: center;
 }
+.price button:hover {
+    background-color: #85e748;
+}
+.price img {
+    width: 1rem;
+    height: auto;
+}
+.last-item {
+    margin-bottom: 2rem;
+}
+#contactus {
+    width: 20rem;
+    align-self: center;
+    border: 2px solid #282b31;
+    box-shadow: 2px 2px #282b31;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.form-input{
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+    height: 1.5rem;
+    border: 1px solid white;
+    box-shadow: 2px 2px #282b31;
+    border-radius: 5px;
+}
+.form-label {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+}
+form textarea {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+    height: 4rem;
+    border: 1px solid white;
+    box-shadow: 2px 2px #282b31;
+    border-radius: 5px;
+}
+form input[type="submit"] {
+    width: 90%;
+    height: 2rem;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid #78c800;
+    background-color: #78c800;
+    box-shadow: 2px 2px #45871b;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+form input[type="submit"]:hover {
+    background-color: #85e748;
+}
+#footer {
+    background-color: #2d323a;
+    width: 70%;
+    height: 4rem;
+    align-self: center;
+    text-align: right;
+    padding-right: 2rem;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+    
+} 
