@@ -88,6 +88,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 form {
     display: flex;
@@ -115,17 +116,21 @@ form {
     background-color: #2d323a;
     padding-top: 1rem;
     position: relative;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    text-align: center;
 }
 .lang {
     color: black;
     margin: auto;
     color: white;
-
 }
 
 .lang img {
     width: 3rem;
     height: auto;
+    margin: auto;
 }
 #youtube {
     width: 100%;
@@ -242,19 +247,104 @@ form input[type="submit"]:hover {
     padding-right: 2rem;
     border-radius: 10px;
 }
-
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 500px) {
+    header {
+        display: block;
+        margin: auto;
+        height: 6rem;
+    }
+    #logo img {
+        margin: auto;
+    }
+    #nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+    }
+    .nav-link {
+        margin-top: 0px;
+    }
     #cover {
         flex-direction: column;
         align-items: center;
         margin: auto;
-        height: 20rem;
+        height: auto;
         justify-content: center;
         position: relative;
         top: 5rem;
-        margin-bottom: 12rem;
+        margin-bottom: 9rem;
     }
-    #earth{
+    #earth {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    #download button {
+        width: auto;
+    }
+    #language {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .lang {
+        min-width: 125px;
+    }
+    .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-text h2, p {
+        text-align: center;
+        margin-top: 0;
+    }
+    iframe {
+        width: 300px;
+        height: auto;
+    }
+    .price p {
+        display: none;
+    }
+    .price h2 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        margin: auto;
+    }
+    .price {
+        width: 40%;
+        margin: 0.5rem auto;
+    }
+    .price button {
+        width: auto;
+    }
+    #pricing {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #contactus {
+        width: auto;
+    }
+    footer p {
+        text-align: right;
+        margin-top: 1rem;
+    }
+}
+@media only screen and (min-width: 500px) and (max-width: 950px) {
+    #cover {
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        height: auto;
+        justify-content: center;
+        position: relative;
+        top: 5rem;
+        margin-bottom: 9rem;
+    }
+    #earth {
         width: 100%;
         justify-content: center;
         align-items: center;
@@ -279,6 +369,7 @@ form input[type="submit"]:hover {
     }
     .price h2 {
         margin-top: 0;
+        margin: auto;
     }
     .price {
         width: 40%;
@@ -289,5 +380,5 @@ form input[type="submit"]:hover {
         justify-content: center;
         align-items: center;
     }
-    
 } 
+
