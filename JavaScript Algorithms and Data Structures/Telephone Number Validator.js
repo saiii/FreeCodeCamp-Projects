@@ -1,13 +1,19 @@
 function telephoneCheck(str) {
+    const regex = /^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/;
+    return regex.test(str);
+}
+
+/* this function is not working because it's ignore parenthesis completion checking
+function telephoneCheck(str) {
     str = str.replace(/\s|\W|\D|-/g, "");
     if (str.length === 10) {
         return true;
-    } if (str.length === 11 && str[0]) {
+    } if (str.length === 11 && str[0] == 1) {
         return true;
     } else {
         return false;
     }
-  }
+} */
   
 telephoneCheck("555-555-5555");
 telephoneCheck("1 555-555-5555");
