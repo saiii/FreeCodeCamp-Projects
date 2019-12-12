@@ -14,6 +14,8 @@ class App extends React.Component {
     )
     .then(response => {
       this.setState({quotes: response.data.quotes});
+      this.setState({randomNumber: Math.floor(Math.random() * this.state.quotes.length)});
+      console.log(this.state.randomNumber);
     });
   }
   randomhandler = () => {
@@ -23,9 +25,11 @@ class App extends React.Component {
   render() {
     let quote = <p id='text'>Loading</p>;
     let author = <p id='author'>Loading</p>;
+    
     if (this.state.quotes) {
-      quote = <p id='text'>{this.state.quotes[0].quote}</p>
-      author = <p id='author'>{this.state.quotes[0].author}</p>
+      console.log(this.state.randomNumber)
+      quote = <p id='text'>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
+      author = <p id='author'>{this.state.quotes[Number(this.state.randomNumber)].author}</p>
     }
     return (
       <div>
