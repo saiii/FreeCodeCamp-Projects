@@ -6,7 +6,7 @@ class App extends React.Component {
     quotes: null,
     color: null,
     randomNumber: null
-  };
+  }
 
   componentDidMount() {
     axios.get(
@@ -15,10 +15,14 @@ class App extends React.Component {
     .then(response => {
       this.setState({quotes: response.data.quotes});
       this.setState({randomNumber: Math.floor(Math.random() * this.state.quotes.length)});
-      console.log(this.state.randomNumber);
     });
   }
-  randomhandler = () => {
+  shouldComponentUpdate(nextProps, nextState) {
+      if (this.state.randomNumber !== nextProps.randomNumber) {
+          return true;
+      }
+  }
+  randomHandler = () => {
     this.setState({randomNumber: Math.floor(Math.random() * this.state.quotes.length)});
   }
 
@@ -27,7 +31,6 @@ class App extends React.Component {
     let author = <p id='author'>Loading</p>;
     
     if (this.state.quotes) {
-      console.log(this.state.randomNumber)
       quote = <p id='text'>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
       author = <p id='author'>{this.state.quotes[Number(this.state.randomNumber)].author}</p>
     }
@@ -35,6 +38,7 @@ class App extends React.Component {
       <div>
         {quote}
         {author}
+        <button onClick={this.randomHandler}>New quote</button>
       </div>
     );
   }
