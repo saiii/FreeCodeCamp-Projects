@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import classes from './Quotes.module.css';
 
 class App extends React.Component {
   state = {
@@ -35,7 +36,7 @@ class App extends React.Component {
       author = <p id='author'>{this.state.quotes[Number(this.state.randomNumber)].author}</p>
     }
     return (
-      <div>
+      <div className={classes.Quotes}>
         {quote}
         {author}
         <button onClick={this.randomHandler}>New quote</button>
