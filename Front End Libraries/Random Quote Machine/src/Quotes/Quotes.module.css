@@ -18,6 +18,11 @@
     text-align: center;
 }
 
+.Text span {
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 3rem;
+}
+
 .Quotes button {
     width: 5rem;
     height: 2rem;

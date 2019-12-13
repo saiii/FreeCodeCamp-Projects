@@ -38,7 +38,7 @@ class App extends React.Component {
     if (this.state.quotes) {
         document.body.style.backgroundColor = this.state.randomColor;
         
-      quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span style={{fontSize: '2rem'}}>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
+      quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
       author = <p id='author' className={classes.Author} style={{color: this.state.randomColor}}>- {this.state.quotes[Number(this.state.randomNumber)].author}</p>
     }
     return (
