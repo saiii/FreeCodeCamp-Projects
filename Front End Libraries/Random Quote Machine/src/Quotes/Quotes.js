@@ -6,7 +6,9 @@ class App extends React.Component {
   state = {
     quotes: null,
     color: null,
-    randomNumber: null
+    randomNumber: null,
+    colors: ['#fa3c5a', '#447ac4', '#5e73d1', '#194052', '#2d999f', '#ff7142', '#db7164', '#aabec2', '#e3c5fd', '#84d8f1'],
+    randomColor: null
   }
 
   componentDidMount() {
@@ -17,6 +19,7 @@ class App extends React.Component {
       this.setState({quotes: response.data.quotes});
       this.setState({randomNumber: Math.floor(Math.random() * this.state.quotes.length)});
     });
+    this.setState({randomColor: this.state.colors[Math.floor(Math.random() * this.state.colors.length)]})
   }
   shouldComponentUpdate(nextProps, nextState) {
       if (this.state.randomNumber !== nextProps.randomNumber) {
@@ -25,6 +28,7 @@ class App extends React.Component {
   }
   randomHandler = () => {
     this.setState({randomNumber: Math.floor(Math.random() * this.state.quotes.length)});
+    this.setState({randomColor: this.state.colors[Math.floor(Math.random() * this.state.colors.length)]})
   }
 
   render() {
@@ -32,14 +36,17 @@ class App extends React.Component {
     let author = <p id='author'>Loading</p>;
     
     if (this.state.quotes) {
-      quote = <p id='text'>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
-      author = <p id='author'>{this.state.quotes[Number(this.state.randomNumber)].author}</p>
+        document.body.style.backgroundColor = this.state.randomColor;
+        
+      quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span style={{fontSize: '2rem'}}>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
+      author = <p id='author' className={classes.Author} style={{color: this.state.randomColor}}>- {this.state.quotes[Number(this.state.randomNumber)].author}</p>
     }
     return (
       <div className={classes.Quotes}>
+        <p></p>
         {quote}
         {author}
-        <button onClick={this.randomHandler}>New quote</button>
+        <button onClick={this.randomHandler} style={{backgroundColor: this.state.randomColor}}>New quote</button>
       </div>
     );
   }

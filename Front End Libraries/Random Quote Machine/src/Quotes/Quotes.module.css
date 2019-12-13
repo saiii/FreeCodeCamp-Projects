@@ -2,7 +2,6 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     width: 70%;
-    text-align: center;
     margin: auto;
     padding: 1rem 1rem;
     box-sizing: border-box;
@@ -10,9 +9,19 @@
     background-color: white;
 }
 
+.Author {
+    text-align: right;
+    font-size: 1rem;
+}
+
+.Text {
+    text-align: center;
+}
+
 .Quotes button {
     width: 5rem;
     height: 2rem;
     border-radius: 0.2rem;
-    
+    color: white;
+    border: none;
 }
