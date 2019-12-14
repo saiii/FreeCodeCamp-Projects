@@ -34,12 +34,13 @@ class App extends React.Component {
   render() {
     let quote = <p id='text'>Loading</p>;
     let author = <p id='author'>Loading</p>;
-    
+    let twitter = null;
     if (this.state.quotes) {
         document.body.style.backgroundColor = this.state.randomColor;
         
-      quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>
-      author = <p id='author' className={classes.Author} style={{color: this.state.randomColor}}>- {this.state.quotes[Number(this.state.randomNumber)].author}</p>
+      quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>;
+      author = <p id='author' className={classes.Author} style={{color: this.state.randomColor}}>- {this.state.quotes[Number(this.state.randomNumber)].author}</p>;
+      twitter = 'https://twitter.com/intent/tweet?hashtags=quotes&text="'+this.state.quotes[Number(this.state.randomNumber)].quote+'" '+this.state.quotes[Number(this.state.randomNumber)].author;
     }
     return (
       <div className={classes.Quotes}>
@@ -48,7 +49,7 @@ class App extends React.Component {
         {author}
         <div className={classes.Button}>
             <div className={classes.SocialMedia}>
-                <a href="/"  style={{backgroundColor: this.state.randomColor}}><div><i class='fab fa-twitter'></i></div></a>
+                <a href={twitter}  target='_blank' style={{backgroundColor: this.state.randomColor}}><div><i class='fab fa-twitter'></i></div></a>
                 <a href="/" style={{backgroundColor: this.state.randomColor}}><div><i class="fab fa-tumblr"></i></div></a>
             </div>
             <div>

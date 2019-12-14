@@ -56,8 +56,9 @@
 
 .Quotes button {
     margin: 15px;
-    width: 5rem;
+    width: 6rem;
     height: 2rem;
+    font-size: 1rem;
     border-radius: 0.2rem;
     color: white;
     border: none;
