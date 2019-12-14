@@ -46,7 +46,15 @@ class App extends React.Component {
         <p></p>
         {quote}
         {author}
-        <button onClick={this.randomHandler} style={{backgroundColor: this.state.randomColor}}>New quote</button>
+        <div className={classes.Button}>
+            <div className={classes.SocialMedia}>
+                <a href="/"  style={{backgroundColor: this.state.randomColor}}><div><i class='fab fa-twitter'></i></div></a>
+                <a href="/" style={{backgroundColor: this.state.randomColor}}><div><i class="fab fa-tumblr"></i></div></a>
+            </div>
+            <div>
+                <button onClick={this.randomHandler} style={{backgroundColor: this.state.randomColor}}>New quote</button>
+            </div>
+        </div>
       </div>
     );
   }
