@@ -8,7 +8,10 @@ class App extends React.Component {
     color: null,
     randomNumber: null,
     colors: ['#fa3c5a', '#447ac4', '#5e73d1', '#194052', '#2d999f', '#ff7142', '#db7164', '#aabec2', '#e3c5fd', '#84d8f1'],
-    randomColor: null
+    randomColor: null,
+    hover: false,
+    hoverTwitter: false,
+    hoverTumber: false
   }
 
   componentDidMount() {
@@ -31,19 +34,48 @@ class App extends React.Component {
     this.setState({randomColor: this.state.colors[Math.floor(Math.random() * this.state.colors.length)]})
   }
 
+  hoverHandler = () => {
+      this.setState((prevState) => ({hover: !prevState.hover}))
+  }
+  hoverTwitterHandler = () => {
+    this.setState((prevState) => ({hoverTwitter: !prevState.hoverTwitter}))
+  }
+  hoverTumblrHandler = () => {
+    this.setState((prevState) => ({hoverTumblr: !prevState.hoverTumblr}))
+  }
   render() {
     let quote = <p id='text'>Loading</p>;
     let author = <p id='author'>Loading</p>;
     let twitter = null;
     let tumblr = null;
+    let style = null;
+    let styleTwitter = null;
+    let styleTumblr = null;
     if (this.state.quotes) {
         document.body.style.backgroundColor = this.state.randomColor;
-        
-      quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>;
-      author = <p id='author' className={classes.Author} style={{color: this.state.randomColor}}>- {this.state.quotes[Number(this.state.randomNumber)].author}</p>;
-      twitter = 'https://twitter.com/intent/tweet?hashtags=quotes&text="'+this.state.quotes[Number(this.state.randomNumber)].quote+'" '+this.state.quotes[Number(this.state.randomNumber)].author;
-      tumblr = 'https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption='+this.state.quotes[Number(this.state.randomNumber)].author+'&content='+this.state.quotes[Number(this.state.randomNumber)].quote+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button';
+        quote = <p id='text' className={classes.Text} style={{color: this.state.randomColor}}><span>"</span>{this.state.quotes[Number(this.state.randomNumber)].quote}</p>;
+        author = <p id='author' className={classes.Author} style={{color: this.state.randomColor}}>- {this.state.quotes[Number(this.state.randomNumber)].author}</p>;
+        twitter = 'https://twitter.com/intent/tweet?hashtags=quotes&text="'+this.state.quotes[Number(this.state.randomNumber)].quote+'" '+this.state.quotes[Number(this.state.randomNumber)].author;
+        tumblr = 'https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes&caption='+this.state.quotes[Number(this.state.randomNumber)].author+'&content='+this.state.quotes[Number(this.state.randomNumber)].quote+'&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button';
+        document.getElementsByTagName('button').onmouseover = function() {
+        }
+    if (this.state.hover) {
+        style = {opacity: '0.6', backgroundColor: this.state.randomColor}
+    } else {
+        style = {opacity: '1', backgroundColor: this.state.randomColor}
     }
+    if (this.state.hoverTwitter) {
+        styleTwitter = {opacity: '0.6', backgroundColor: this.state.randomColor}
+    } else {
+        styleTwitter = {opacity: '1', backgroundColor: this.state.randomColor}
+    }
+    if (this.state.hoverTumblr) {
+        styleTumblr = {opacity: '0.6', backgroundColor: this.state.randomColor}
+    } else {
+        styleTumblr = {opacity: '1', backgroundColor: this.state.randomColor}
+    }
+    }
+    
     return (
       <div className={classes.Quotes}>
         <p></p>
@@ -51,11 +83,11 @@ class App extends React.Component {
         {author}
         <div className={classes.Button}>
             <div className={classes.SocialMedia}>
-                <a href={twitter}  target='_blank' style={{backgroundColor: this.state.randomColor}}><div><i class='fab fa-twitter'></i></div></a>
-                <a href={tumblr} target='_blank' style={{backgroundColor: this.state.randomColor}}><div><i class="fab fa-tumblr"></i></div></a>
+                <a href={twitter}  target='_blank' style={styleTwitter} onMouseOver={this.hoverTwitterHandler} onMouseOut={this.hoverTwitterHandler}><div><i class='fab fa-twitter'></i></div></a>
+                <a href={tumblr} target='_blank' style={styleTumblr} onMouseOver={this.hoverTumblrHandler} onMouseOut={this.hoverTumblrHandler}><div><i class="fab fa-tumblr"></i></div></a>
             </div>
             <div>
-                <button onClick={this.randomHandler} style={{backgroundColor: this.state.randomColor}}>New quote</button>
+                <button onClick={this.randomHandler} onMouseOver={this.hoverHandler} onMouseOut={this.hoverHandler} style={style}>New quote</button>
             </div>
         </div>
       </div>
