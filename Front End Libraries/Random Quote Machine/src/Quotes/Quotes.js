@@ -78,7 +78,6 @@ class App extends React.Component {
     
     return (
       <div className={classes.Quotes}>
-        <p></p>
         {quote}
         {author}
         <div className={classes.Button}>
