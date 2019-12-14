@@ -77,16 +77,16 @@ class App extends React.Component {
     }
     
     return (
-      <div className={classes.Quotes}>
+      <div id="quote-box" className={classes.Quotes}>
         {quote}
         {author}
         <div className={classes.Button}>
             <div className={classes.SocialMedia}>
-                <a href={twitter}  target='_blank' style={styleTwitter} onMouseOver={this.hoverTwitterHandler} onMouseOut={this.hoverTwitterHandler}><div><i class='fab fa-twitter'></i></div></a>
+                <a id="tweet-quote" href={twitter}  target='_blank' style={styleTwitter} onMouseOver={this.hoverTwitterHandler} onMouseOut={this.hoverTwitterHandler}><div><i class='fab fa-twitter'></i></div></a>
                 <a href={tumblr} target='_blank' style={styleTumblr} onMouseOver={this.hoverTumblrHandler} onMouseOut={this.hoverTumblrHandler}><div><i class="fab fa-tumblr"></i></div></a>
             </div>
             <div>
-                <button onClick={this.randomHandler} onMouseOver={this.hoverHandler} onMouseOut={this.hoverHandler} style={style}>New quote</button>
+                <button id="new-quote" onClick={this.randomHandler} onMouseOver={this.hoverHandler} onMouseOut={this.hoverHandler} style={style}>New quote</button>
             </div>
         </div>
       </div>
