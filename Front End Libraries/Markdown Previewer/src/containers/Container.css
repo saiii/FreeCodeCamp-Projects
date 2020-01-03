@@ -30,14 +30,14 @@
     #editorDiv {
         width: 600px;
     }
-    #editorText {
+    #editor {
         min-width: 600px;
         max-width: 600px;
     }
     #previewDiv {
         width: 735px !important;
     }
-    #previewText {
+    #preview {
         min-width: 735px !important;
         max-width: 735px !important;
     }
