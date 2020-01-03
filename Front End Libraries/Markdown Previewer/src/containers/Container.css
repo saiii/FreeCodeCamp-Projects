@@ -1,5 +1,4 @@
 #editorDiv, #previewDiv {
-    width: 80%;
     border: 1px solid black;
     margin: auto;
     margin-top: 25px;
@@ -22,8 +21,6 @@
     color: black;
     margin: auto;
     min-height: 200px;
-    max-width: 80%;
-    min-width: 80%;
     background-color: #939393;
     height: auto;
     resize: vertical;
@@ -40,15 +37,13 @@ h1, h2, h3, p, pre, blockquote, table, ul, ol, img {
         width: 600px;
     }
     #editor {
-        min-width: 600px;
-        max-width: 600px;
+        width: 600px;
     }
     #previewDiv {
-        width: 735px !important;
+        width: 735px;
     }
     #preview {
-        min-width: 735px !important;
-        max-width: 735px !important;
+        width: 735px;
     }
 }
 

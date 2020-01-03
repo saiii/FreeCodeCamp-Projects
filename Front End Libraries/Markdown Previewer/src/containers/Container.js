@@ -48,7 +48,10 @@ class Container extends Component {
                     />
                 {console.log(this.state.editor)}
                 {console.log(this.state.previewer)}
-                <Preview id='preview' clicked={this.previewerMaximizeHandler}>{marked(this.state.markdown)}</Preview>
+                <Preview id='preview' 
+                    clicked={this.previewerMaximizeHandler}
+                    max={this.state.previewer}>
+                </Preview>
             </div>
         );
     };
