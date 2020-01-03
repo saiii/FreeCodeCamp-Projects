@@ -40,7 +40,12 @@ class Container extends Component {
     render() {
         return (
             <div className='Container'>
-                <Editor id='edit' value={this.state.markdown} changed={this.textChangeHandler} clicked={this.editorMaximizeHandler}/>
+                <Editor id='edit' 
+                    value={this.state.markdown} 
+                    changed={this.textChangeHandler} 
+                    clicked={this.editorMaximizeHandler} 
+                    max={this.state.editor}
+                    />
                 {console.log(this.state.editor)}
                 {console.log(this.state.previewer)}
                 <Preview id='preview' clicked={this.previewerMaximizeHandler}>{marked(this.state.markdown)}</Preview>
