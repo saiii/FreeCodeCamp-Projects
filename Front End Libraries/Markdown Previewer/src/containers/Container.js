@@ -8,14 +8,16 @@ class Container extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            markdown: placeholder
+            markdown: placeholder,
+            editor: false,
+            previewer: false
         }
         this.textChangeHandler = this.textChangeHandler.bind(this)
+        this.editorMaximizeHandler = this.editorMaximizeHandler.bind(this)
     }
 
     componentDidMount() {
         document.getElementById('preview').innerHTML = marked(this.state.markdown);
-        
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -26,10 +28,15 @@ class Container extends Component {
         this.setState({markdown: event.target.value})
     }
 
+    editorMaximizeHandler = () => {
+        this.setState(state => ({editor: !state.editor}))
+    }
+
     render() {
         return (
             <div className='Container'>
-                <Editor id='edit' value={this.state.markdown} changed={this.textChangeHandler}/>
+                <Editor id='edit' value={this.state.markdown} changed={this.textChangeHandler} clicked={this.editorMaximizeHandler}/>
+                {console.log(this.state.editor)}
                 <Preview id='preview'>{marked(this.state.markdown)}</Preview>
             </div>
         );
