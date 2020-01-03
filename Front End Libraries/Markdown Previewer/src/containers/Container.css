@@ -12,11 +12,12 @@
 
 .Container textarea, #preview {
     box-sizing: border-box;
+    text-align: left;
+    padding-top: 0;
     border: none;
     font-family: inherit;
     color: black;
     margin: auto;
-    margin-top: 0;
     min-height: 200px;
     max-width: 80%;
     min-width: 80%;
@@ -24,6 +25,10 @@
     height: auto;
     resize: vertical;
     font-size: 14px;
+}
+
+h1, h2, h3, p, pre, blockquote, table, ul, ol, img {
+    margin-top:0;
 }
 
 @media screen and (min-width: 750px) {

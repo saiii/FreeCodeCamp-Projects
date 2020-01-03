@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Container.css';
 import Editor from '../components/editor';
 import Preview from '../components/preview';
+import marked from 'marked';
 
 class Container extends Component {
     constructor(props) {
@@ -11,11 +12,15 @@ class Container extends Component {
         }
     }
 
+    componentDidMount() {
+        document.getElementById('preview').innerHTML = marked(this.state.markdown);
+    }
+
     render() {
         return (
             <div className='Container'>
                 <Editor id='edit' value={this.state.markdown}/>
-                <Preview id='preview'></Preview>
+                <Preview id='preview'>{marked(this.state.markdown)}</Preview>
                 <div id='content'></div>
             </div>
         );
