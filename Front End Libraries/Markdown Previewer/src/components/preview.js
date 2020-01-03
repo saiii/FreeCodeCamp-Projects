@@ -5,7 +5,7 @@ const preview = (props) => {
         <Fragment>
             <div id='previewDiv' style={{width: '98%'}}>
                 <div>Previewer</div>
-                <div><i class="far fa-window-maximize"></i></div>
+                <div><i class="far fa-window-maximize" onClick={props.clicked}></i></div>
             </div>
             <div id='preview' style={{maxWidth: '98%', minWidth: '98%'}}></div>
         </Fragment>

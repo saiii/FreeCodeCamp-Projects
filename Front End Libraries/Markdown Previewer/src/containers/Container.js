@@ -14,6 +14,7 @@ class Container extends Component {
         }
         this.textChangeHandler = this.textChangeHandler.bind(this)
         this.editorMaximizeHandler = this.editorMaximizeHandler.bind(this)
+        this.previewerMaximizeHandler = this.previewerMaximizeHandler.bind(this)
     }
 
     componentDidMount() {
@@ -32,12 +33,17 @@ class Container extends Component {
         this.setState(state => ({editor: !state.editor}))
     }
 
+    previewerMaximizeHandler = () => {
+        this.setState(state => ({previewer: !state.previewer}))
+    }
+
     render() {
         return (
             <div className='Container'>
                 <Editor id='edit' value={this.state.markdown} changed={this.textChangeHandler} clicked={this.editorMaximizeHandler}/>
                 {console.log(this.state.editor)}
-                <Preview id='preview'>{marked(this.state.markdown)}</Preview>
+                {console.log(this.state.previewer)}
+                <Preview id='preview' clicked={this.previewerMaximizeHandler}>{marked(this.state.markdown)}</Preview>
             </div>
         );
     };
