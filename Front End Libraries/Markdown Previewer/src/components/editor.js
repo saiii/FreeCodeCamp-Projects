@@ -3,7 +3,10 @@ import React, { Fragment } from 'react';
 const editor = (props) => {
     return (
         <Fragment>
-            <div id='editorDiv'>Editor</div>
+            <div id='editorDiv'>
+                <div>Editor</div>
+                <div><i class="far fa-window-maximize"></i></div>
+            </div>
             <textarea id='editor' value={props.value} onChange={props.changed}/>
         </Fragment>
     );

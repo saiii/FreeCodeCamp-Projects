@@ -1,4 +1,4 @@
-.Container div {
+#editorDiv, #previewDiv {
     width: 80%;
     border: 1px solid black;
     margin: auto;
@@ -8,6 +8,10 @@
     background-color: #2d2d2d;
     color: white;
     height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .Container textarea, #preview {
