@@ -14,8 +14,8 @@ class Container extends Component {
     render() {
         return (
             <div className='Container'>
-                <Editor value={this.state.markdown}/>
-                <Preview />
+                <Editor id='edit' value={this.state.markdown}/>
+                <Preview id='preview' />
             </div>
         );
     };
