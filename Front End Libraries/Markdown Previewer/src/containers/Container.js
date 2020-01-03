@@ -15,6 +15,7 @@ class Container extends Component {
         return (
             <div className='Container'>
                 <Editor value={this.state.markdown}/>
+                <Preview />
             </div>
         );
     };

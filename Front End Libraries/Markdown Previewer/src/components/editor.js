@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const editor = (props) => {
     return (
-        <div className='Editor'>
+        <Fragment>
             <div>Editor</div>
             <textarea value={props.value}/>
-        </div>
+        </Fragment>
     );
 };
 

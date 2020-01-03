@@ -1,9 +1,11 @@
-import React from 'react';
-import Container from '../containers/Container';
+import React, { Fragment } from 'react';
 
-const preview = () => {
+const preview = (props) => {
     return (
-        <div></div>
+        <Fragment>
+            <div>Preview</div>
+            <textarea value={props.value}/>
+        </Fragment>
     );
 };
 
