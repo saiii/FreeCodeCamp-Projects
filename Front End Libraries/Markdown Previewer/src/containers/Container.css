@@ -1,4 +1,4 @@
-.Editor div {
+.Container div {
     width: 70%;
     border: 1px solid black;
     margin: auto;
@@ -10,7 +10,7 @@
     height: 25px;
 }
 
-.Editor textarea {
+.Container textarea {
     box-sizing: border-box;
     border: none;
     font-family: inherit;

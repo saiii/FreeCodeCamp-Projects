@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import './editor.css';
+import './Container.css';
+import Editor from '../components/editor';
+import Preview from '../components/preview';
 
-class Editor extends Component {
+class Container extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -11,9 +13,8 @@ class Editor extends Component {
 
     render() {
         return (
-            <div className='Editor'>
-                <div>Editor</div>
-                <textarea id='input' value={this.state.markdown}/>
+            <div className='Container'>
+                <Editor value={this.state.markdown}/>
             </div>
         );
     };
@@ -67,4 +68,4 @@ And here. | Okay. | I think we get it.
 ![React Logo w/ Text](https://goo.gl/Umyytc)
 `
 
-export default Editor;
+export default Container;
