@@ -10,16 +10,26 @@ class Container extends Component {
         this.state = {
             markdown: placeholder
         }
+        this.textChangeHandler = this.textChangeHandler.bind(this)
     }
 
     componentDidMount() {
         document.getElementById('preview').innerHTML = marked(this.state.markdown);
+        
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        document.getElementById('preview').innerHTML = marked(this.state.markdown);
+    }
+
+    textChangeHandler = (event) => {
+        this.setState({markdown: event.target.value})
     }
 
     render() {
         return (
             <div className='Container'>
-                <Editor id='edit' value={this.state.markdown}/>
+                <Editor id='edit' value={this.state.markdown} changed={this.textChangeHandler}/>
                 <Preview id='preview'>{marked(this.state.markdown)}</Preview>
             </div>
         );

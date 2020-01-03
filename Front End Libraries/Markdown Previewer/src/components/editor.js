@@ -4,7 +4,7 @@ const editor = (props) => {
     return (
         <Fragment>
             <div id='editorDiv'>Editor</div>
-            <textarea id='editor' value={props.value}/>
+            <textarea id='editor' value={props.value} onChange={props.changed}/>
         </Fragment>
     );
 };
