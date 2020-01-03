@@ -10,7 +10,7 @@
     height: 25px;
 }
 
-.Container textarea {
+.Container textarea, #preview {
     box-sizing: border-box;
     border: none;
     font-family: inherit;
