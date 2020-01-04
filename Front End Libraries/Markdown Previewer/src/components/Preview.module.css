@@ -24,3 +24,8 @@
     height: 90vh !important;
     z-index: 100;
 }
+
+.Cursor:hover {
+    cursor: pointer;
+    color: orange;
+}

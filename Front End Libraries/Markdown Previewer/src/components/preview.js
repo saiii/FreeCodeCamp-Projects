@@ -12,7 +12,7 @@ const preview = (props) => {
         <Fragment>
             <div id='previewDiv' className={stylePreview.join(' ')}>
                 <div>Previewer</div>
-                <div><i class="far fa-window-maximize" onClick={props.clicked}></i></div>
+                <div className={classes.Cursor}><i class="far fa-window-maximize" onClick={props.clicked}></i></div>
             </div>
             <div id='preview' className={styleText.join(' ')}></div>
         </Fragment>
