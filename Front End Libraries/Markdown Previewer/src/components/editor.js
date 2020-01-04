@@ -11,7 +11,7 @@ const editor = (props) => {
     return (
         <Fragment>
             <div id='editorDiv' className={styleEditor.join(' ')}>
-                <div style={{fontWeight: 'bold'}}>Editor</div>
+                <div style={{fontWeight: 'bold'}}><i class="far fa-edit" style={{marginRight: '10px'}}></i>Editor</div>
                 <div className={classes.Cursor}><i class="far fa-window-maximize" onClick={props.clicked} ></i></div>
             </div>
             <textarea id='editor' value={props.value} onChange={props.changed} className={styleText.join(' ')}/>
