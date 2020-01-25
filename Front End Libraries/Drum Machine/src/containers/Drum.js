@@ -24,8 +24,12 @@ class Drum extends Component {
         volume: 1
     }
     sendDatafromParent = (data) => {
-        this.setState({whichKey: data})
+        this.setState({whichKey: data});
     }
+    setVolume = (data) => {
+        this.setState({volume: data});
+    }
+
     render() {
         return (
             <Fragment>
@@ -33,16 +37,16 @@ class Drum extends Component {
                     <div id="display" className={classes.Display}>
                     {this.state.keys.map(key => {
                         return (
-                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} whichKey={this.sendDatafromParent} drumName={key[1]}/>
+                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} whichKey={this.sendDatafromParent} drumName={key[1]} volume={this.state.volume}/>
                         )
                         })}
                     </div>
                     <div className={classes.Control}>
-                        <Screen className={classes.Screen}>{this.state.whichKey}</Screen>
-                        <Slider className={classes.Slider}/>
+                        <Screen className={classes.Screen}>{this.state.whichKey && this.state.volume}</Screen>
+                        <Slider className={classes.Slider} volume={this.setVolume} />
                     </div>
                 </div>
-                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent}/>
+                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume}/>
             </Fragment>
         );
     }
