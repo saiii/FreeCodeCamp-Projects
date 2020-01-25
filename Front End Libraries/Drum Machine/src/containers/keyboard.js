@@ -15,6 +15,7 @@ class Keyboard extends Component {
         switch (event.key) {
             case 'q': 
                 audio = new Audio(this.props.sound[0][2]);
+                audio.volume = 0.2;
                 audio.play();
                 this.setState({currentKey: 'Chord 1'});
                 this.props.whichKey(this.state.currentKey);

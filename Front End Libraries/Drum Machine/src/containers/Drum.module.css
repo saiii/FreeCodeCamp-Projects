@@ -32,6 +32,7 @@
 
 .Control {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 250px;
@@ -45,4 +46,36 @@
     align-items: center;
     background-color: #303841;
     border-radius: 5px;
+}
+
+.Slider {
+    width: 200px;
+    height: 5px;
+    border-radius: 5px;
+    margin: 30px 0; 
+    background: #d3d3d3;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.Slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 20px;
+    background: #be3144;
+    cursor: pointer;
+}
+
+.Slider::-moz-change-thumb {
+    width: 10px;
+    height: 20px;
+    background: #be3144;
+    cursor: pointer;
+}
+
+.Slider:hover {
+    opacity: 1;
 }

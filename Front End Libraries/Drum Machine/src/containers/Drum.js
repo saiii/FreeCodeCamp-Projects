@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import KeyButton from '../components/keyButton';
 import Screen from './screen';
 import Keyboard from './keyboard';
+import Slider from '../components/slider';
 
 import classes from './Drum.module.css';
 
@@ -19,7 +20,8 @@ class Drum extends Component {
             ['X', 'Side Stick', 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'],
             ['C', 'Snare', 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3']
         ], 
-        whichKey: null
+        whichKey: null,
+        volume: 1
     }
     sendDatafromParent = (data) => {
         this.setState({whichKey: data})
@@ -37,6 +39,7 @@ class Drum extends Component {
                     </div>
                     <div className={classes.Control}>
                         <Screen className={classes.Screen}>{this.state.whichKey}</Screen>
+                        <Slider className={classes.Slider}/>
                     </div>
                 </div>
                 <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent}/>
