@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import KeyButton from '../components/keyButton';
-import Screen from '../components/screen';
+import Screen from './screen';
 import Keyboard from './keyboard';
 
 import classes from './Drum.module.css';
@@ -18,9 +18,14 @@ class Drum extends Component {
             ['Z', 'Punchy Kick', 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3'],
             ['X', 'Side Stick', 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'],
             ['C', 'Snare', 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3']
-        ]
+        ], 
+        whichKey: null
+    }
+    sendDatafromParent = (data) => {
+        this.setState({whichKey: data})
     }
     render() {
+        console.log(this.state.whichKey)
         return (
             <Fragment>
                 <div id="drum-machine" className={classes.Drum}>
@@ -32,11 +37,10 @@ class Drum extends Component {
                         })}
                     </div>
                     <div className={classes.Control}>
-                        <Screen className={classes.Screen} />
-                        
+                        <Screen className={classes.Screen}>{this.state.whichKey}</Screen>
                     </div>
                 </div>
-                <Keyboard sound={this.state.keys}/>
+                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent}/>
             </Fragment>
         );
     }
