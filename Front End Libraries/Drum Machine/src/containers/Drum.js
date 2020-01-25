@@ -47,7 +47,7 @@ class Drum extends Component {
                     </div>
                     <div className={classes.Control}>
                         <Power className={classes.Power} start={classes.Start} end={classes.End} power={this.switchPower} usePower={this.state.power}/>
-                        <Screen className={classes.Screen}>{this.state.whichKey}</Screen>
+                        <Screen className={classes.Screen}>{this.state.power ? this.state.whichKey : null}</Screen>
                         <Slider className={classes.Slider} volume={this.setVolume} />
                     </div>
                 </div>
