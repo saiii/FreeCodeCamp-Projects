@@ -25,14 +25,13 @@ class Drum extends Component {
         this.setState({whichKey: data})
     }
     render() {
-        console.log(this.state.whichKey)
         return (
             <Fragment>
                 <div id="drum-machine" className={classes.Drum}>
                     <div id="display" className={classes.Display}>
                     {this.state.keys.map(key => {
                         return (
-                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} />
+                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} whichKey={this.sendDatafromParent} drumName={key[1]}/>
                         )
                         })}
                     </div>

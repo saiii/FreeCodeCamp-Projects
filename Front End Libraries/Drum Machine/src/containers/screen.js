@@ -5,7 +5,6 @@ class screen extends Component {
         return (
             <div className={this.props.className}>
                 {this.props.children}
-                {console.log(this.props.children)}
             </div>
         )
     }
