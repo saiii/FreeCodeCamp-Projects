@@ -4,7 +4,11 @@ const keyButton = (props) => {
     const soundClickHandler = (sound) => {
         var audio = new Audio(sound);
         props.whichKey(props.drumName);
-        audio.volume = +props.volume;
+        if (props.power === false) {
+            audio.volume = 0;
+        } else {
+            audio.volume = +props.volume;
+        }
         console.log(props.volume)
         audio.play();
     }

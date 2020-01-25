@@ -41,7 +41,7 @@ class Drum extends Component {
                     <div id="display" className={classes.Display}>
                     {this.state.keys.map(key => {
                         return (
-                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} whichKey={this.sendDatafromParent} drumName={key[1]} volume={this.state.volume}/>
+                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} whichKey={this.sendDatafromParent} drumName={key[1]} volume={this.state.volume} power={this.state.power}/>
                         )
                         })}
                     </div>
@@ -51,7 +51,7 @@ class Drum extends Component {
                         <Slider className={classes.Slider} volume={this.setVolume} />
                     </div>
                 </div>
-                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume}/>
+                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume} power={this.state.power}/>
             </Fragment>
         );
     }
