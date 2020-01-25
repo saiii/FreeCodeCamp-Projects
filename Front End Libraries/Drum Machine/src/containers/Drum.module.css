@@ -97,15 +97,6 @@
     align-items: center;
     justify-content: flex-start;
 }
-.End {
-    width: 50px;
-    height: 26px;
-    background-color: black;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
 .Power span {
     width: 20px;
     height: 16px;
