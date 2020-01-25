@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import KeyButton from '../components/keyButton';
 import Screen from '../components/screen';
+import Keyboard from './keyboard';
 
 import classes from './Drum.module.css';
 
@@ -19,70 +20,24 @@ class Drum extends Component {
             ['C', 'Snare', 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3']
         ]
     }
-
-    componentDidMount() {
-        document.addEventListener('keydown', this.onKeydown);
-    }
-    onKeydown = (event) => {
-        console.log(event);
-        let audio;
-        switch (event.key) {
-            case 'q': 
-                audio = new Audio(this.state.keys[0][2]);
-                audio.play();
-                break;
-            case 'w': 
-                audio = new Audio(this.state.keys[1][2]);
-                audio.play();
-                break;
-            case 'e':
-                audio = new Audio(this.state.keys[2][2]);
-                audio.play();
-                break;
-            case 'a':
-                audio = new Audio(this.state.keys[3][2]);
-                audio.play();
-                break;
-            case 's':
-                audio = new Audio(this.state.keys[4][2]);
-                audio.play();
-                break;
-            case 'd':
-                audio = new Audio(this.state.keys[5][2]);
-                audio.play();
-                break;
-            case 'z':
-                audio = new Audio(this.state.keys[6][2]);
-                audio.play();
-                break;
-            case 'x':
-                audio = new Audio(this.state.keys[7][2]);
-                audio.play();
-                break;
-            case 'c':
-                audio = new Audio(this.state.keys[8][2]);
-                audio.play();
-                break;
-            default:
-                audio = new Audio(this.state.keys[2][2]);
-                audio.play();
-        }      
-    }
     render() {
         return (
-            <div id="drum-machine" className={classes.Drum}>
-                <div id="display" className={classes.Display}>
-                {this.state.keys.map(key => {
-                    return (
-                        <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} />
-                    )
-                    })}
+            <Fragment>
+                <div id="drum-machine" className={classes.Drum}>
+                    <div id="display" className={classes.Display}>
+                    {this.state.keys.map(key => {
+                        return (
+                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} />
+                        )
+                        })}
+                    </div>
+                    <div className={classes.Control}>
+                        <Screen className={classes.Screen} />
+                        
+                    </div>
                 </div>
-                <div className={classes.Control}>
-                    <Screen className={classes.Screen} />
-                    
-                </div>
-            </div>
+                <Keyboard sound={this.state.keys}/>
+            </Fragment>
         );
     }
 }
