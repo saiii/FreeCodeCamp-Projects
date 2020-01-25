@@ -42,7 +42,7 @@ class Drum extends Component {
                         })}
                     </div>
                     <div className={classes.Control}>
-                        <Screen className={classes.Screen}>{this.state.whichKey && this.state.volume}</Screen>
+                        <Screen className={classes.Screen}>{this.state.whichKey}</Screen>
                         <Slider className={classes.Slider} volume={this.setVolume} />
                     </div>
                 </div>

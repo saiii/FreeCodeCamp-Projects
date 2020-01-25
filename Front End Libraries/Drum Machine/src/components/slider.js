@@ -4,6 +4,7 @@ const slider = props => {
     const sliderHandler = (event) => {
         console.log(event.target.value)
         props.volume(event.target.value/100);
+        document.getElementById('screen').innerHTML = `Volume: ${event.target.value}`; 
         return event.target.value
     }
     return (
