@@ -4,6 +4,7 @@ import KeyButton from '../components/keyButton';
 import Screen from './screen';
 import Keyboard from './keyboard';
 import Slider from '../components/slider';
+import Power from '../components/power';
 
 import classes from './Drum.module.css';
 
@@ -21,7 +22,8 @@ class Drum extends Component {
             ['C', 'Snare', 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3']
         ], 
         whichKey: null,
-        volume: 1
+        volume: 1,
+        power: true
     }
     sendDatafromParent = (data) => {
         this.setState({whichKey: data});
@@ -29,7 +31,9 @@ class Drum extends Component {
     setVolume = (data) => {
         this.setState({volume: data});
     }
-
+    switchPower = (power) => {
+        this.setState({power: power});
+    }
     render() {
         return (
             <Fragment>
@@ -42,6 +46,7 @@ class Drum extends Component {
                         })}
                     </div>
                     <div className={classes.Control}>
+                        <Power className={classes.Power} start={classes.Start} end={classes.End} power={this.switchPower} usePower={this.state.power}/>
                         <Screen className={classes.Screen}>{this.state.whichKey}</Screen>
                         <Slider className={classes.Slider} volume={this.setVolume} />
                     </div>
