@@ -1,3 +1,14 @@
+@media screen and (max-width: 700px) {
+    .Drum {
+        flex-direction: column;
+    }
+    .Display {
+        margin: auto;
+    }
+    .Control {
+        margin: auto;
+    }
+}
 .Drum {
     display: flex;
     width: 650px;
