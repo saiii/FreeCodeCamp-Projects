@@ -23,7 +23,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Chord 1'});
+                this.props.bank ? this.setState({currentKey: 'Chord 1'}) : this.setState({currentKey: 'Heater 1'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'w': 
@@ -35,7 +35,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Chord 2'});
+                this.props.bank ? this.setState({currentKey: 'Chord 2'}) : this.setState({currentKey: 'Heater 2'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'e':
@@ -47,7 +47,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Chord 3'});
+                this.props.bank ? this.setState({currentKey: 'Chord 3'}) : this.setState({currentKey: 'Heater 3'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'a':
@@ -59,7 +59,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Shaker'});
+                this.props.bank ? this.setState({currentKey: 'Shaker'}) : this.setState({currentKey: 'Heater 4'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 's':
@@ -71,7 +71,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Open HH'});
+                this.props.bank ? this.setState({currentKey: 'Open HH'}) : this.setState({currentKey: 'Clap'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'd':
@@ -83,7 +83,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Closed HH'});
+                this.props.bank ? this.setState({currentKey: 'Closed HH'}) : this.setState({currentKey: 'Open HH'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'z':
@@ -95,7 +95,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Punchy Kick'});
+                this.props.bank ? this.setState({currentKey: 'Punchy Kick'}) : this.setState({currentKey: "Kick n'Hat"});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'x':
@@ -107,7 +107,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Side Stick'});
+                this.props.bank ? this.setState({currentKey: 'Side Stick'}) : this.setState({currentKey: 'Kick'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'c':
@@ -119,7 +119,7 @@ class Keyboard extends Component {
                     audio.volume = this.props.volume;
                 }
                 audio.play();
-                this.setState({currentKey: 'Snare'});
+                this.props.bank ? this.setState({currentKey: 'Snare'}) : this.setState({currentKey: 'Closed HH'});
                 this.props.whichKey(this.state.currentKey);
                 break;
             default:
