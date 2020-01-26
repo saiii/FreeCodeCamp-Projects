@@ -46,7 +46,7 @@ class Drum extends Component {
                     <div id="display" className={classes.Display}>
                     {this.state.keys.map(key => {
                         return (
-                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={key[2]} whichKey={this.sendDatafromParent} drumName={key[1]} volume={this.state.volume} power={this.state.power}/>
+                            <KeyButton key={key[0]} keys={key[0]} className={classes.Keys} sound={this.state.bank ? key[2] : key[4]} whichKey={this.sendDatafromParent} drumName={key[1]} volume={this.state.volume} power={this.state.power} />
                         )
                         })}
                     </div>
@@ -57,7 +57,7 @@ class Drum extends Component {
                         <Bank className={classes.Power} start={classes.Start} end={classes.End} bank={this.switchBank} useBank={this.state.bank}/>
                     </div>
                 </div>
-                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume} power={this.state.power}/>
+                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume} power={this.state.power} />
             </Fragment>
         );
     }
