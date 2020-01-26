@@ -5,6 +5,7 @@ import Screen from './screen';
 import Keyboard from './keyboard';
 import Slider from '../components/slider';
 import Power from '../components/power';
+import Bank from '../components/bank';
 
 import classes from './Drum.module.css';
 
@@ -23,7 +24,8 @@ class Drum extends Component {
         ], 
         whichKey: null,
         volume: 1,
-        power: true
+        power: true,
+        bank: true
     }
     sendDatafromParent = (data) => {
         this.setState({whichKey: data});
@@ -33,6 +35,9 @@ class Drum extends Component {
     }
     switchPower = (power) => {
         this.setState({power: power});
+    }
+    switchBank = (bank) => {
+        this.setState({bank: bank})
     }
     render() {
         return (
@@ -49,6 +54,7 @@ class Drum extends Component {
                         <Power className={classes.Power} start={classes.Start} end={classes.End} power={this.switchPower} usePower={this.state.power}/>
                         <Screen className={classes.Screen}>{this.state.power ? this.state.whichKey : null}</Screen>
                         <Slider className={classes.Slider} volume={this.setVolume} />
+                        <Bank className={classes.Power} start={classes.Start} end={classes.End} bank={this.switchBank} useBank={this.state.bank}/>
                     </div>
                 </div>
                 <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume} power={this.state.power}/>
