@@ -1,8 +1,9 @@
 .Drum {
     display: flex;
     width: 650px;
-    border: 2px solid orange;
+    border: 4px solid orange;
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .Display {
@@ -96,10 +97,12 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    border-radius: 5px;
 }
 .Power span {
     width: 20px;
     height: 16px;
     background-color: white;
     margin: 4px;
+    border-radius: 5px;
 }
