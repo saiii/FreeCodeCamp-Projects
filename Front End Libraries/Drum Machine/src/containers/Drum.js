@@ -57,7 +57,7 @@ class Drum extends Component {
                         <Bank className={classes.Power} start={classes.Start} end={classes.End} bank={this.switchBank} useBank={this.state.bank}/>
                     </div>
                 </div>
-                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume} power={this.state.power} />
+                <Keyboard sound={this.state.keys} whichKey={this.sendDatafromParent} volume={this.state.volume} power={this.state.power} bank={this.state.bank}/>
             </Fragment>
         );
     }

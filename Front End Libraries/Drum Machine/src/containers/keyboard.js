@@ -12,9 +12,11 @@ class Keyboard extends Component {
     }
     onKeydown = (event) => {
         let audio;
+        let sound;
         switch (event.key) {
             case 'q': 
-                audio = new Audio(this.props.sound[0][2]);
+            sound = this.props.bank ? this.props.sound[0][2] : this.props.sound[0][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -25,7 +27,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'w': 
-                audio = new Audio(this.props.sound[1][2]);
+                sound = this.props.bank ? this.props.sound[1][2] : this.props.sound[1][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -36,7 +39,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'e':
-                audio = new Audio(this.props.sound[2][2]);
+                sound = this.props.bank ? this.props.sound[2][2] : this.props.sound[2][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -47,7 +51,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'a':
-                audio = new Audio(this.props.sound[3][2]);
+                sound = this.props.bank ? this.props.sound[3][2] : this.props.sound[3][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -58,7 +63,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 's':
-                audio = new Audio(this.props.sound[4][2]);
+                sound = this.props.bank ? this.props.sound[4][2] : this.props.sound[4][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -69,7 +75,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'd':
-                audio = new Audio(this.props.sound[5][2]);
+                sound = this.props.bank ? this.props.sound[5][2] : this.props.sound[5][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -80,7 +87,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'z':
-                audio = new Audio(this.props.sound[6][2]);
+                sound = this.props.bank ? this.props.sound[6][2] : this.props.sound[6][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -91,7 +99,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'x':
-                audio = new Audio(this.props.sound[7][2]);
+                sound = this.props.bank ? this.props.sound[7][2] : this.props.sound[7][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
@@ -102,7 +111,8 @@ class Keyboard extends Component {
                 this.props.whichKey(this.state.currentKey);
                 break;
             case 'c':
-                audio = new Audio(this.props.sound[8][2]);
+                sound = this.props.bank ? this.props.sound[8][2] : this.props.sound[8][4];
+                audio = new Audio(sound);
                 if (this.props.power === false) {
                     audio.volume = 0;
                 } else {
