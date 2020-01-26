@@ -1,0 +1,119 @@
+:root {
+    --red: #be3144;
+    --blue: #45567d;
+    --grey: #303841;
+}
+body {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+#navbar {
+    position: fixed; 
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--red);
+}
+nav a {
+    text-decoration: none;
+    padding: 20px 30px;
+    color: white;
+}
+nav a:hover {
+    background-color: var(--blue);
+}
+#welcome-section {
+    
+    background-color: var(--grey);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#welcome-section h1 {
+    font-size: 70px;
+    margin-bottom: 0;
+}
+#welcome-section p {
+    color: var(--red);
+    margin-top: 0;
+}
+#projects {
+    margin-top: 0;
+    background-color: var(--blue);
+}
+#projects h2 {
+    margin: 0;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+}
+#projects img {
+    height: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+#collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+#collection div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 20px;
+    flex: 30%;
+    box-sizing: border-box;
+    background-color: var(--grey);
+}
+#collection a {
+    text-decoration: none;
+    color: white;
+}
+#collection div:hover .link {
+    color: #ff7f50;
+}
+.link {
+    color: white;
+    transition: color 1s ease-out;
+}
+.wrap-link {
+    margin: 0 0 !important;
+}
+#contact {
+    margin-top: 0;
+    background-color: var(--grey);
+}
+#contact h2 {
+    margin-top: 0;
+    padding-top: 100px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 50px;
+}
+#contact p {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+#social {
+    display: flex;
+}
+@media screen and (max-width: 600px) {
+    #collection div {
+        flex: 100%;
+    }
+}
