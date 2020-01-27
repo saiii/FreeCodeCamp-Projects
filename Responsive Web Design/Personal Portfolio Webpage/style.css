@@ -64,13 +64,13 @@ nav a:hover {
     max-width: 100%;
     box-sizing: border-box;
 }
-#collection {
+#project-tile {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
 }
-#collection div {
+#project-tile div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,11 +79,11 @@ nav a:hover {
     box-sizing: border-box;
     background-color: var(--grey);
 }
-#collection a {
+#project-tile a {
     text-decoration: none;
     color: white;
 }
-#collection div:hover .link {
+#project-tile div:hover .link {
     color: #ff7f50;
 }
 .link {
@@ -131,7 +131,7 @@ nav a:hover {
     top: 6px;
 }
 @media screen and (max-width: 600px) {
-    #collection div {
+    #project-tile div {
         flex: 100%;
     }
 }
