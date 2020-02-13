@@ -1,5 +1,131 @@
 .Calculator {
     width: 400px;
-    margin: 0;
-    border: 1px solid red;
+    border: 3px solid grey;
+    background-color: black;
+    text-align: center;
 }   
+
+.Pad {
+    width: 392px;
+    margin: 0 auto 4px auto;
+    display: grid;
+    grid-template-columns: 98px 98px 98px 98px;
+    grid-template-rows: 65px 65px 65px 65px 65px;
+    grid-template-areas: 
+        "AC AC devision multiplication"
+        "seven eight nine subtraction"
+        "four five six addition"
+        "one two three equal" 
+        "zero zero dot equal";
+}
+
+.Devision {
+    grid-area: devision;
+}
+.Multiplication {
+    grid-area: multiplication;
+}
+.Seven {
+    grid-area: seven;
+}
+.Eight {
+    grid-area: eight;
+}
+.Nine {
+    grid-area: nine;
+}
+.Subtraction {
+    grid-area: subtraction;
+}
+.Four {
+    grid-area: four;
+}
+.Five {
+    grid-area: five;
+}
+.Six {
+    grid-area: six;
+}
+.Addition {
+    grid-area: addition;
+}
+.One {
+    grid-area: one;
+}
+.Two {
+    grid-area: two;
+}
+.Three {
+    grid-area: three;
+}
+.Equal {
+    grid-area: equal;
+}
+.Zero {
+    grid-area: zero;
+}
+.Dot {
+    grid-area: dot;
+}
+
+.Calculator button:hover {
+    border: 1px solid black;
+    color: black;
+}
+
+.AC {
+    background-color: rgb(225, 59, 59);
+    color: white;
+    height: 65px;
+    width: 196px;
+    font-size: 24px;
+    margin: 0 0;
+    padding: 0 0;
+    display: inline-block;
+    grid-area: AC;
+}
+
+.Math {
+    background-color: rgb(101, 98, 98);
+    height: 65px;
+    width: 98px;
+    color: white;
+    font-size: 24px;
+    margin: 0 0;
+    padding: 0 0;
+    display: inline-block;
+}
+
+.Number {
+    background-color: rgb(67, 66, 66);
+    height: 65px;
+    width: 98px;
+    color: white;
+    font-size: 24px;
+    margin: 0 0;
+    padding: 0 0;
+    display: inline-block;
+}
+
+.Equal {
+    background-color: rgb(81, 81, 223);
+    height: 130px;
+    width: 98px;
+    color: white;
+    font-size: 24px;
+    margin: 0 0;
+    padding: 0 0;
+    display: inline-block;
+}
+
+.Zero {
+    background-color: rgb(67, 66, 66);
+    height: 65px;
+    width: 196px;
+    color: white;
+    font-size: 24px;
+    margin: 0 0;
+    padding: 0 0;
+    display: inline-block;
+    align-self: flex-start;
+}
