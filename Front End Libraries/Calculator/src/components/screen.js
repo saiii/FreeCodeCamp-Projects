@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './screen.module.css';
 
-const Screen = props => {
+const screen = props => {
     return (
         <div className={classes.Screen}>
             <p>0</p>
@@ -9,4 +9,4 @@ const Screen = props => {
     )
 };
 
-export default Screen;
+export default screen;

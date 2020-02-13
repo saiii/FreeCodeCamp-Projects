@@ -1,5 +1,5 @@
 import React from 'react';
-import Screen from '../components/screen';
+import Screen from '../components/Screen';
 
 const Calculator = props => {
 
