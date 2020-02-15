@@ -22,6 +22,8 @@ const Calculator = props => {
             calculateEquationHandler(0);
             typeHandler('.');
             calculateEquationHandler('.');
+        } else if (value === '=' && equation.length === 0) {
+
         } else if (value === '=') {
             let answer;
             if (typeof equation[equation.length - 1] !== 'number') {
