@@ -17,6 +17,9 @@ const Calculator = props => {
         if (value === '+' || value === '-' || value === '*' || value === '/') {
             clearHandler();
             typeHandler(value);
+        } else if (typeof value === 'number' && typeof type[type.length - 1] !== 'number') {
+            clearHandler();
+            typeHandler(value);
         } else {
             typeHandler(value);
         }
