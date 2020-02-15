@@ -14,6 +14,7 @@ const Calculator = props => {
     const clearHandler = () => dispatch(actions.clearWhatUserType());
     const calculateEquationHandler = (value) => dispatch(actions.calculateEquation(value));
     const resetHandler = () => dispatch(actions.reset());
+    const calculateHansler = (value, answer) => dispatch(actions.calculate(value, answer));
 
     const clickHandler = (value) => { 
         if (value === '.' && type.length === 0) {
@@ -31,6 +32,16 @@ const Calculator = props => {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
+        } else if (value === '=') {
+            let answer;
+
+            if (typeof equation[equation.length - 1] !== 'number') {
+                answer = eval(equation.slice(0,equation.length).join(''));
+            } else {
+                answer = eval(equation.join(''));
+            }
+
+            calculateHansler('=', answer);
         } else {
             typeHandler(value);
             calculateEquationHandler(value);

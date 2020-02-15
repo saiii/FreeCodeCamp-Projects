@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.TYPE:
             return {
                 ...state,
-                type: [state.type, action.value]
+                type: [...state.type, action.value]
             };
         case actionTypes.CLEAR_WHAT_USER_TYPE:
             return {
@@ -20,13 +20,18 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CALCULATE_EQUATION:
             return {
                 ...state,
-                equation: [state.equation, action.value]
+                equation: [...state.equation, action.value]
             }
         case actionTypes.RESET:
             return {
                 equation: [],
                 type: []
             }
+        case actionTypes.CALCULATE:
+            return {
+                equation: [...state.equation, action.value, action.answer],
+                type: [action.answer]
+             }
         default:
             return {...state};
     }

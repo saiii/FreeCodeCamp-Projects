@@ -25,3 +25,11 @@ export const reset = () => {
         type: actionTypes.RESET
     };
 };
+
+export const calculate = (value, answer) => {
+    return { 
+        type: actionTypes.CALCULATE,
+        value: value,
+        answer: answer
+     };
+};
