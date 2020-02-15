@@ -22,6 +22,15 @@ const Calculator = props => {
             calculateEquationHandler(0);
             typeHandler('.');
             calculateEquationHandler('.');
+        } else if (value === '=') {
+            let answer;
+            if (typeof equation[equation.length - 1] !== 'number') {
+                answer = eval(equation.slice(0,equation.length-1).join(''));
+            } else {
+                answer = eval(equation.join(''));
+            }
+
+            calculateHansler('=', answer);
         } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
 
         } else if (value === '+' || value === '-' || value === '*' || value === '/') {
@@ -32,16 +41,6 @@ const Calculator = props => {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
-        } else if (value === '=') {
-            let answer;
-
-            if (typeof equation[equation.length - 1] !== 'number') {
-                answer = eval(equation.slice(0,equation.length).join(''));
-            } else {
-                answer = eval(equation.join(''));
-            }
-
-            calculateHansler('=', answer);
         } else {
             typeHandler(value);
             calculateEquationHandler(value);
