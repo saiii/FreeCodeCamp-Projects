@@ -16,7 +16,12 @@ const Calculator = props => {
     const resetHandler = () => dispatch(actions.reset());
 
     const clickHandler = (value) => { 
-        if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
+        if (value === '.' && type.length === 0) {
+            typeHandler(0);
+            calculateEquationHandler(0);
+            typeHandler('.');
+            calculateEquationHandler('.');
+        } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
 
         } else if (value === '+' || value === '-' || value === '*' || value === '/') {
             clearHandler();
