@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    equation: '123',
+    equation: [],
     type: []
 };
 
@@ -16,6 +16,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 type: []
+            }
+        case actionTypes.CALCULATE_EQUATION:
+            return {
+                ...state,
+                equation: [state.equation, action.value]
             }
         default:
             return {...state};

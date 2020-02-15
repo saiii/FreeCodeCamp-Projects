@@ -12,16 +12,20 @@ const Calculator = props => {
     const dispatch = useDispatch();
     const typeHandler = (value) => dispatch(actions.displayWhatUserType(value));
     const clearHandler = () => dispatch(actions.clearWhatUserType());
+    const calculateEquationHandler = (value) => dispatch(actions.calculateEquation(value));
 
     const clickHandler = (value) => { 
         if (value === '+' || value === '-' || value === '*' || value === '/') {
             clearHandler();
             typeHandler(value);
+            calculateEquationHandler(value);
         } else if (typeof value === 'number' && typeof type[type.length - 1] !== 'number') {
             clearHandler();
             typeHandler(value);
+            calculateEquationHandler(value);
         } else {
             typeHandler(value);
+            calculateEquationHandler(value);
         }
     };
 
