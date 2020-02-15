@@ -15,7 +15,9 @@ const Calculator = props => {
     const calculateEquationHandler = (value) => dispatch(actions.calculateEquation(value));
 
     const clickHandler = (value) => { 
-        if (value === '+' || value === '-' || value === '*' || value === '/') {
+        if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
+
+        } else if (value === '+' || value === '-' || value === '*' || value === '/') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
