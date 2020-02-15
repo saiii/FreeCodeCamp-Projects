@@ -1,15 +1,16 @@
 .Calculator {
-    width: 400px;
+    width: 300px;
     border: 3px solid grey;
     background-color: black;
     text-align: center;
+    box-sizing: border-box;
 }   
 
 .Pad {
-    width: 392px;
-    margin: 0 auto 4px auto;
+    width: 288px;
+    margin: 0 auto 3px auto;
     display: grid;
-    grid-template-columns: 98px 98px 98px 98px;
+    grid-template-columns: 72px 72px 72px 72px;
     grid-template-rows: 65px 65px 65px 65px 65px;
     grid-template-areas: 
         "AC AC devision multiplication"
@@ -17,6 +18,7 @@
         "four five six addition"
         "one two three equal" 
         "zero zero dot equal";
+    box-sizing: border-box;
 }
 
 .Devision {
@@ -77,55 +79,60 @@
     background-color: rgb(225, 59, 59);
     color: white;
     height: 65px;
-    width: 196px;
+    width: 144px;
     font-size: 24px;
     margin: 0 0;
     padding: 0 0;
     display: inline-block;
     grid-area: AC;
+    box-sizing: border-box;
 }
 
 .Math {
     background-color: rgb(101, 98, 98);
     height: 65px;
-    width: 98px;
+    width: 72px;
     color: white;
     font-size: 24px;
     margin: 0 0;
     padding: 0 0;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 .Number {
     background-color: rgb(67, 66, 66);
     height: 65px;
-    width: 98px;
+    width: 72px;
     color: white;
     font-size: 24px;
     margin: 0 0;
     padding: 0 0;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 .Equal {
     background-color: rgb(81, 81, 223);
     height: 130px;
-    width: 98px;
+    width: 72px;
     color: white;
     font-size: 24px;
     margin: 0 0;
     padding: 0 0;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 .Zero {
     background-color: rgb(67, 66, 66);
     height: 65px;
-    width: 196px;
+    width: 144px;
     color: white;
     font-size: 24px;
     margin: 0 0;
     padding: 0 0;
     display: inline-block;
     align-self: flex-start;
+    box-sizing: border-box;
 }

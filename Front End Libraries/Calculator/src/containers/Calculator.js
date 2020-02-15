@@ -1,8 +1,17 @@
 import React from 'react';
 import Screen from '../components/Screen';
 import classes from './Calculator.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import * as actions from '../store/actions/display';
 
 const Calculator = props => {
+
+
+    const equation = useSelector(state => { return state.equation });
+    const type = useSelector(state => { return state.type });
+
+    const dispatch = useDispatch();
+    const typeHandler = () => dispatch(actions.displayWhatUserType());
 
     return (
         <div className={classes.Calculator}>
