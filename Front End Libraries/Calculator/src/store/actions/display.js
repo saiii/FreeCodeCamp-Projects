@@ -6,3 +6,9 @@ export const displayWhatUserType = (character) => {
        value: character
     };
 };
+
+export const clearWhatUserType = () => {
+    return {
+        type: actionTypes.CLEAR_WHAT_USER_TYPE
+    }
+}

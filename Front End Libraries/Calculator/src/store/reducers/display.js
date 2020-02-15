@@ -12,6 +12,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 type: [state.type, action.value]
             };
+        case actionTypes.CLEAR_WHAT_USER_TYPE:
+            return {
+                ...state,
+                type: []
+            }
         default:
             return {...state};
     }
