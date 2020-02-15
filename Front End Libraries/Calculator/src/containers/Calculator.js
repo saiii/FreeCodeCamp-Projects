@@ -19,7 +19,7 @@ const Calculator = props => {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
-        } else if (typeof value === 'number' && typeof type[type.length - 1] !== 'number') {
+        } else if (typeof value === 'number' && typeof type[type.length - 1] !== 'number' && type[type.length - 1] !== '.') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
