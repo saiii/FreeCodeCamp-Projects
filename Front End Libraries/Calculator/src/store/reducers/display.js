@@ -22,6 +22,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 equation: [state.equation, action.value]
             }
+        case actionTypes.RESET:
+            return {
+                equation: [],
+                type: []
+            }
         default:
             return {...state};
     }

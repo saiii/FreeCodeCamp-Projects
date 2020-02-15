@@ -19,3 +19,9 @@ export const calculateEquation = (value) => {
         value: value
     };
 };
+
+export const reset = () => {
+    return {
+        type: actionTypes.RESET
+    };
+};

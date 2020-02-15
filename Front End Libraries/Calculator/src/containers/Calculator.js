@@ -13,6 +13,7 @@ const Calculator = props => {
     const typeHandler = (value) => dispatch(actions.displayWhatUserType(value));
     const clearHandler = () => dispatch(actions.clearWhatUserType());
     const calculateEquationHandler = (value) => dispatch(actions.calculateEquation(value));
+    const resetHandler = () => dispatch(actions.reset());
 
     const clickHandler = (value) => { 
         if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
@@ -33,11 +34,9 @@ const Calculator = props => {
 
     return (
         <div className={classes.Calculator}>
-
-        
             <Screen />
             <div className={classes.Pad}>
-                <button className={classes.AC}>AC</button>
+                <button onClick={() => resetHandler()} className={classes.AC}>AC</button>
                 <button onClick={() => clickHandler('/')} className={[classes.Math, classes.Devision].join(' ')}>/</button>
                 <button onClick={() => clickHandler('*')} className={[classes.Math, classes.Multiplication].join(' ')}>x</button>
                 <button onClick={() => clickHandler(7)} className={[classes.Number, classes.Seven].join(' ')}>7</button>
