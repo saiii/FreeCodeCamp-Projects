@@ -9,6 +9,7 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.TYPE:
             return {
+                ...state,
                 type: action.value 
             };
         default:
