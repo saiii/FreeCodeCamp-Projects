@@ -8,6 +8,7 @@ const Calculator = props => {
 
     const equation = useSelector(state => { return state.equation });
     const type = useSelector(state => { return state.type });
+    const ready = useSelector(state => { return state.ready });
 
     const dispatch = useDispatch();
     const typeHandler = (value) => dispatch(actions.displayWhatUserType(value));
@@ -15,6 +16,8 @@ const Calculator = props => {
     const calculateEquationHandler = (value) => dispatch(actions.calculateEquation(value));
     const resetHandler = () => dispatch(actions.reset());
     const calculateHansler = (value, answer) => dispatch(actions.calculate(value, answer));
+    const setReady = () => dispatch(actions.ready());
+    const setNotReady = () => dispatch(actions.notReady());
 
     const clickHandler = (value) => { 
         if (value === '.' && type.length === 0) {
@@ -24,28 +27,31 @@ const Calculator = props => {
             calculateEquationHandler('.');
         } else if (value === '=' && equation.length === 0) {
 
-        } else if (value === '=') {
+        } else if (value === '=' && ready) {
             let answer;
             if (typeof equation[equation.length - 1] !== 'number') {
                 answer = eval(equation.slice(0,equation.length-1).join(''));
             } else {
                 answer = eval(equation.join(''));
             }
-
             calculateHansler('=', answer);
+            setNotReady();
         } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
 
         } else if (value === '+' || value === '-' || value === '*' || value === '/') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
+            setReady();
         } else if (typeof value === 'number' && typeof type[type.length - 1] !== 'number' && type[type.length - 1] !== '.') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
+            setReady();
         } else {
             typeHandler(value);
             calculateEquationHandler(value);
+            setReady();
         }
     };
 

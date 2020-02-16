@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     equation: [],
-    type: []
+    type: [],
+    ready: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +33,16 @@ const reducer = (state = initialState, action) => {
                 equation: [...state.equation, action.value, action.answer],
                 type: [action.answer]
              }
+        case actionTypes.READY:
+            return {
+                ...state,
+                ready: true
+            }
+        case actionTypes.NOT_READY:
+            return {
+                ...state,
+                ready: false
+            }
         default:
             return {...state};
     }
