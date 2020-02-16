@@ -18,6 +18,7 @@ const Calculator = props => {
     const calculateHansler = (value, answer) => dispatch(actions.calculate(value, answer));
     const setReady = () => dispatch(actions.ready());
     const setNotReady = () => dispatch(actions.notReady());
+    const removeLastChar = () => dispatch(actions.removeLastChar());
 
     const clickHandler = (value) => { 
         if (value === '.' && type.length === 0) {
@@ -33,6 +34,7 @@ const Calculator = props => {
             let answer;
             if (typeof equation[equation.length - 1] !== 'number') {
                 answer = eval(equation.slice(0,equation.length-1).join(''));
+                removeLastChar();
             } else {
                 answer = eval(equation.join(''));
             }

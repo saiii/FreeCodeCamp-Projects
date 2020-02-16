@@ -45,6 +45,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 ready: false
             }
+        case actionTypes.REMOVE_LAST_CHAR:
+            return {
+                ...state,
+                equation: state.equation.slice(0, state.equation.length - 1)
+            }
         default:
             return {...state};
     }

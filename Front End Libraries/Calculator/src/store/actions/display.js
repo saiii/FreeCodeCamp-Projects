@@ -37,11 +37,17 @@ export const calculate = (value, answer) => {
 export const ready = () => {
     return {
         type: actionTypes.READY
-    }
-}
+    };
+};
 
 export const notReady = () => {
     return {
         type: actionTypes.NOT_READY
-    }
-}
+    };
+};
+
+export const removeLastChar = () => {
+    return {
+        type: actionTypes.REMOVE_LAST_CHAR
+    };
+};

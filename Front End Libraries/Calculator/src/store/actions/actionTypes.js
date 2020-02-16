@@ -5,3 +5,4 @@ export const RESET = 'RESET';
 export const CALCULATE = 'CALCULATE';
 export const READY = 'READY';
 export const NOT_READY = 'NOT_READY';
+export const REMOVE_LAST_CHAR = 'REMOVE_LAST_CHAR';
