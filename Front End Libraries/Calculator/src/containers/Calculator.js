@@ -38,6 +38,13 @@ const Calculator = props => {
             }
             calculateHansler('=', answer);
             setNotReady();
+        } else if (!ready && typeof value === 'number') {
+            resetHandler();
+            typeHandler(value);
+            calculateEquationHandler(value);
+            setReady();
+        } else if (!ready && typeof value !== 'number') {
+
         } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
 
         } else if (value === '+' || value === '-' || value === '*' || value === '/') {

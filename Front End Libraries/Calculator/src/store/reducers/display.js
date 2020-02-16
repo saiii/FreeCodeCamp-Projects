@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
     equation: [],
     type: [],
-    ready: false
+    ready: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,11 +25,13 @@ const reducer = (state = initialState, action) => {
             }
         case actionTypes.RESET:
             return {
+                ...state, 
                 equation: [],
                 type: []
             }
         case actionTypes.CALCULATE:
             return {
+                ...state,
                 equation: [...state.equation, action.value, action.answer],
                 type: [action.answer]
              }
