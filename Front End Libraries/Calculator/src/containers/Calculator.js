@@ -9,6 +9,7 @@ const Calculator = props => {
     const equation = useSelector(state => { return state.equation });
     const type = useSelector(state => { return state.type });
     const ready = useSelector(state => { return state.ready });
+    const answer = useSelector(state => { return state.answer });
 
     const dispatch = useDispatch();
     const typeHandler = (value) => dispatch(actions.displayWhatUserType(value));
@@ -31,14 +32,12 @@ const Calculator = props => {
         } else if (!ready && value === '=') {
 
         } else if (value === '=' && ready) {
-            let answer;
             if (typeof equation[equation.length - 1] !== 'number') {
-                answer = eval(equation.slice(0,equation.length-1).join(''));
+                calculateHansler('=', eval(equation.slice(0,equation.length-1).join('')));
                 removeLastChar();
             } else {
-                answer = eval(equation.join(''));
+                calculateHansler('=', eval(equation.join('')));
             }
-            calculateHansler('=', answer);
             setNotReady();
         } else if (!ready && typeof value === 'number') {
             resetHandler();
