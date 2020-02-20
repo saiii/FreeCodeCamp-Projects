@@ -29,7 +29,8 @@ const reducer = (state = initialState, action) => {
                 ...state, 
                 equation: [],
                 type: [],
-                answer: ''
+                answer: '',
+                ready: true
             }
         case actionTypes.CALCULATE:
             return {

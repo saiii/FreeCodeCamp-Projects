@@ -52,7 +52,7 @@ const Calculator = props => {
             setReady();
         } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
 
-        } else if (value === '+' || value === '-' || value === '*' || value === '/') {
+        } else if (answer.length > 0 && (value === '+' || value === '-' || value === '*' || value === '/')) {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
