@@ -39,7 +39,7 @@ const Calculator = props => {
                 calculateHansler('=', eval(equation.join('')));
             }
             setNotReady();
-        } else if (!ready && typeof value === 'number') {
+        } else if (!ready && ((typeof value === 'number') || value === '.')) {
             resetHandler();
             typeHandler(value);
             calculateEquationHandler(value);
