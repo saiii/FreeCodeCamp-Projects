@@ -22,7 +22,25 @@ const Calculator = props => {
     const removeLastChar = () => dispatch(actions.removeLastChar());
 
     const clickHandler = (value) => { 
-        if (value === '.' && type.length === 0) {
+        if  (typeof value !== 'number' && typeof equation[equation.length - 1] !== 'number') {
+
+        } else if (equation.length >= 17 && typeof value !== 'number' && value !== '=') {
+            clearHandler();
+            typeHandler(value);
+            calculateEquationHandler(value);
+            setReady();
+        } else if (equation.length >= 17 && typeof equation[equation.length - 1] !== 'number') {
+            clearHandler();
+            typeHandler(value);
+            calculateEquationHandler(value);
+            setReady();
+        } else if (equation.length >= 17 && value === '=' && typeof equation[equation.length - 1] === 'number') {
+            calculateHansler('=', eval(equation.join('')));
+            setNotReady();
+        } else if (equation.length >= 17) {
+            clearHandler();
+            typeHandler('DIGIT LIMIT MET');
+        } else if (value === '.' && type.length === 0) {
             typeHandler(0);
             calculateEquationHandler(0);
             typeHandler('.');
@@ -50,8 +68,6 @@ const Calculator = props => {
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
-        } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
-
         } else if (answer.length > 0 && (value === '+' || value === '-' || value === '*' || value === '/')) {
             clearHandler();
             typeHandler(value);
