@@ -1,6 +1,6 @@
 .Screen {
     width: 100%;
-    height: 60px;
+    min-height: 60px;
     margin: 0;
     background-color: black;
 }
@@ -10,10 +10,14 @@
     text-align: right;
     color: orange;
     font-size: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .Screen p:nth-child(2) {
     margin: 0 0;
     text-align: right;
     font-size: 30px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
