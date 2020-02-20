@@ -45,7 +45,11 @@ const Calculator = props => {
             calculateEquationHandler(value);
             setReady();
         } else if (!ready && typeof value !== 'number') {
-
+            resetHandler();
+            calculateEquationHandler(answer);
+            typeHandler(value);
+            calculateEquationHandler(value);
+            setReady();
         } else if (typeof value !== 'number' && typeof type[type.length - 1] !== 'number') {
 
         } else if (value === '+' || value === '-' || value === '*' || value === '/') {
