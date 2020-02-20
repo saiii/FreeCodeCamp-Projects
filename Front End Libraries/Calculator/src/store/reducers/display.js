@@ -4,7 +4,7 @@ const initialState = {
     equation: [],
     type: [],
     ready: true,
-    answer: 0
+    answer: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,7 +28,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, 
                 equation: [],
-                type: []
+                type: [],
+                answer: ''
             }
         case actionTypes.CALCULATE:
             return {
