@@ -6,3 +6,5 @@ export const CALCULATE = 'CALCULATE';
 export const READY = 'READY';
 export const NOT_READY = 'NOT_READY';
 export const REMOVE_LAST_CHAR = 'REMOVE_LAST_CHAR';
+export const CHAR_NUM_PLUS = 'CHAR_PLUS';
+export const CHAR_NUM_RESET = 'CHAR_NUM_RESET';

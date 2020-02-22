@@ -4,7 +4,8 @@ const initialState = {
     equation: [],
     type: [],
     ready: true,
-    answer: ''
+    answer: '',
+    charNum: 0
 };
 
 const reducer = (state = initialState, action) => {
@@ -53,6 +54,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 equation: state.equation.slice(0, state.equation.length - 1)
+            }
+        case actionTypes.CHAR_NUM_PLUS:
+            return {
+                ...state,
+                charNum: state.charNum + 1
+            }
+        case actionTypes.CHAR_NUM_RESET:
+            return {
+                ...state,
+                charNum: 0
             }
         default:
             return {...state};

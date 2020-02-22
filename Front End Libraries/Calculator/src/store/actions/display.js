@@ -51,3 +51,15 @@ export const removeLastChar = () => {
         type: actionTypes.REMOVE_LAST_CHAR
     };
 };
+
+export const charNumPlus = () => {
+    return {
+        type: actionTypes.CHAR_NUM_PLUS
+    };
+};
+
+export const charNumReset = () => {
+    return {
+        type: actionTypes.CHAR_NUM_RESET
+    };
+};

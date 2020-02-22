@@ -10,6 +10,7 @@ const Calculator = props => {
     const type = useSelector(state => { return state.type });
     const ready = useSelector(state => { return state.ready });
     const answer = useSelector(state => { return state.answer });
+    const charNum = useSelector(state => { return state.charNum });
 
     const dispatch = useDispatch();
     const typeHandler = (value) => dispatch(actions.displayWhatUserType(value));
@@ -20,24 +21,35 @@ const Calculator = props => {
     const setReady = () => dispatch(actions.ready());
     const setNotReady = () => dispatch(actions.notReady());
     const removeLastChar = () => dispatch(actions.removeLastChar());
+    const charNumPlus = () => dispatch(actions.charNumPlus());
+    const charNumReset = () => dispatch(actions.charNumReset());
 
     const clickHandler = (value) => { 
         if  (typeof value !== 'number' && typeof equation[equation.length - 1] !== 'number') {
 
+        } else if (!ready && equation.length >= 17 && typeof value !== 'number') {
+            resetHandler();
+            calculateEquationHandler(answer);
+            typeHandler(value);
+            calculateEquationHandler(value);
+            setReady();
+            charNumReset();
         } else if (equation.length >= 17 && typeof value !== 'number' && value !== '=') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
-            setReady();
+            charNumReset();
         } else if (equation.length >= 17 && typeof equation[equation.length - 1] !== 'number') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
+            charNumPlus();
         } else if (equation.length >= 17 && value === '=' && typeof equation[equation.length - 1] === 'number') {
             calculateHansler('=', eval(equation.join('')));
             setNotReady();
-        } else if (equation.length >= 17) {
+            charNumReset();
+        } else if (charNum >= 17) {
             clearHandler();
             typeHandler('DIGIT LIMIT MET');
         } else if (value === '.' && type.length === 0) {
@@ -45,6 +57,7 @@ const Calculator = props => {
             calculateEquationHandler(0);
             typeHandler('.');
             calculateEquationHandler('.');
+            charNumPlus();
         } else if (value === '=' && equation.length === 0) {
 
         } else if (!ready && value === '=') {
@@ -53,8 +66,10 @@ const Calculator = props => {
             if (typeof equation[equation.length - 1] !== 'number') {
                 calculateHansler('=', eval(equation.slice(0,equation.length-1).join('')));
                 removeLastChar();
+                charNumReset();
             } else {
                 calculateHansler('=', eval(equation.join('')));
+                charNumReset();
             }
             setNotReady();
         } else if (!ready && ((typeof value === 'number') || value === '.')) {
@@ -62,26 +77,31 @@ const Calculator = props => {
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
+            charNumPlus();
         } else if (!ready && typeof value !== 'number') {
             resetHandler();
             calculateEquationHandler(answer);
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
-        } else if (answer.length > 0 && (value === '+' || value === '-' || value === '*' || value === '/')) {
+            charNumReset();
+        } else if (/*answer.length > 0 && */(value === '+' || value === '-' || value === '*' || value === '/')) {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
+            charNumReset();
         } else if (typeof value === 'number' && typeof type[type.length - 1] !== 'number' && type[type.length - 1] !== '.') {
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
+            charNumPlus();
         } else {
             typeHandler(value);
             calculateEquationHandler(value);
             setReady();
+            charNumPlus();
         }
     };
 
@@ -89,7 +109,7 @@ const Calculator = props => {
         <div className={classes.Calculator}>
             <Screen />
             <div className={classes.Pad}>
-                <button onClick={() => resetHandler()} className={classes.AC}>AC</button>
+                <button onClick={() => {resetHandler(); charNumReset();}} className={classes.AC}>AC</button>
                 <button onClick={() => clickHandler('/')} className={[classes.Math, classes.Devision].join(' ')}>/</button>
                 <button onClick={() => clickHandler('*')} className={[classes.Math, classes.Multiplication].join(' ')}>x</button>
                 <button onClick={() => clickHandler(7)} className={[classes.Number, classes.Seven].join(' ')}>7</button>
