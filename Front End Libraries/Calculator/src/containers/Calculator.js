@@ -52,6 +52,13 @@ const Calculator = props => {
             calculateHansler('=', eval(evaluation));
             charNumReset();
             setNotReady();
+        } else if (value === '-' && typeof equation[equation.length -1] !== 'number') {
+            calculateEquationHandler('(')
+            clearHandler();
+            typeHandler(value);
+            calculateEquationHandler(value);
+            needParenthesis(true);
+            charNumPlus();
         } else if (typeof value !== 'number' && typeof equation[equation.length - 1] !== 'number') {
 
         } else if (!ready && equation.length >= 17 && typeof value !== 'number') {
