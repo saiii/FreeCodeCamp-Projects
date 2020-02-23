@@ -5,7 +5,8 @@ const initialState = {
     type: [],
     ready: true,
     answer: '',
-    charNum: 0
+    charNum: 0,
+    needParenthesis: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -64,6 +65,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 charNum: 0
+            }
+        case actionTypes.NEED_PARENTHESIS:
+            return {
+                ...state,
+                needParenthesis: action.parenthesis
             }
         default:
             return {...state};

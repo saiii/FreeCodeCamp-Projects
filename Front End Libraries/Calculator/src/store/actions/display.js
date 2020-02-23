@@ -63,3 +63,10 @@ export const charNumReset = () => {
         type: actionTypes.CHAR_NUM_RESET
     };
 };
+
+export const needParenthesis = (value) => {
+    return {
+        type: actionTypes.NEED_PARENTHESIS,
+        parenthesis: value
+    };
+};

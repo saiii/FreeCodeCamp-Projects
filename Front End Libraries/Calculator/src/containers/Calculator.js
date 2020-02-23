@@ -11,6 +11,7 @@ const Calculator = props => {
     const ready = useSelector(state => { return state.ready });
     const answer = useSelector(state => { return state.answer });
     const charNum = useSelector(state => { return state.charNum });
+    const hasParenthesis = useSelector(state => { return state.needParenthesis });
 
     const dispatch = useDispatch();
     const typeHandler = (value) => dispatch(actions.displayWhatUserType(value));
@@ -23,9 +24,35 @@ const Calculator = props => {
     const removeLastChar = () => dispatch(actions.removeLastChar());
     const charNumPlus = () => dispatch(actions.charNumPlus());
     const charNumReset = () => dispatch(actions.charNumReset());
+    const needParenthesis = (value) => dispatch(actions.needParenthesis(value));
 
     const clickHandler = (value) => { 
-        if  (typeof value !== 'number' && typeof equation[equation.length - 1] !== 'number') {
+        if  (value === '-' && equation.length === 0) {
+            resetHandler();
+            typeHandler(value);
+            calculateEquationHandler(value);
+            charNumPlus();
+        } else if (typeof value === 'number' && equation[equation.length - 1] === '-') {
+            typeHandler(value);
+            calculateEquationHandler(value);
+            charNumPlus();
+        } else if (value === '-' && equation[equation.length - 1] === '-' && equation.length === 1) {
+
+        }
+        else if (value === '-' && equation.length !== 0 && equation[equation.length -1] === '-' && equation[equation.length -2] !== '-') {
+            clearHandler();
+            typeHandler(value);
+            calculateEquationHandler('(');
+            calculateEquationHandler(value);
+            needParenthesis(true);
+            charNumPlus();
+        } else if (value === '=' && equation[equation.length - 2] === ')' && typeof equation[equation.length - 1] !== 'number') {
+            let evaluation = equation.slice(0,equation.length-1).join('');
+            removeLastChar();
+            calculateHansler('=', eval(evaluation));
+            charNumReset();
+            setNotReady();
+        } else if (typeof value !== 'number' && typeof equation[equation.length - 1] !== 'number') {
 
         } else if (!ready && equation.length >= 17 && typeof value !== 'number') {
             resetHandler();
@@ -63,14 +90,30 @@ const Calculator = props => {
         } else if (!ready && value === '=') {
 
         } else if (value === '=' && ready) {
-            if (typeof equation[equation.length - 1] !== 'number') {
-                calculateHansler('=', eval(equation.slice(0,equation.length-1).join('')));
-                removeLastChar();
-                charNumReset();
-            } else {
-                calculateHansler('=', eval(equation.join('')));
-                charNumReset();
+            if (hasParenthesis) {
+                calculateEquationHandler(')');
+                needParenthesis(false);
             }
+            if (typeof equation[equation.length - 1] !== 'number') {
+                if (hasParenthesis) {
+                    let evaluation = equation.slice(0,equation.length-1).push(')');
+                    calculateHansler('=', eval(evaluation));
+                    removeLastChar();
+                } else {
+                    let evaluation = equation.slice(0,equation.length-1).join('');
+                    calculateHansler('=', eval(evaluation));
+                    removeLastChar();
+                }
+            } else {
+                if (hasParenthesis) {
+                    let evaluation = equation.push(')');
+                    calculateHansler('=', eval(evaluation));
+                } else {
+                    let evaluation = equation.join('');
+                    calculateHansler('=', eval(evaluation));
+                }
+            }
+            charNumReset();
             setNotReady();
         } else if (!ready && ((typeof value === 'number') || value === '.')) {
             resetHandler();
@@ -86,6 +129,10 @@ const Calculator = props => {
             setReady();
             charNumReset();
         } else if (/*answer.length > 0 && */(value === '+' || value === '-' || value === '*' || value === '/')) {
+            if (hasParenthesis) {
+                calculateEquationHandler(')');
+                needParenthesis(false);
+            }
             clearHandler();
             typeHandler(value);
             calculateEquationHandler(value);
