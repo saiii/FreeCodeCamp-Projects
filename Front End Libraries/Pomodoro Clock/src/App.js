@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Clock from './containers/clock';
+import Clock from './containers/Clock';
 
 import './App.css';
 
