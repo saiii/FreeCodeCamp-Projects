@@ -13,8 +13,8 @@ const Clock = () => {
         <div className={classes.Clock}>
             <h1>Pomodoro Clock</h1>
             <div>
-                <Length lengthType="Break Length"/>
-                <Length lengthType="Session Length"/>
+                <Length lengthType="Break Length" length={breakLength} />
+                <Length lengthType="Session Length" length={sessionLength} />
             </div>
         </div>
     )
