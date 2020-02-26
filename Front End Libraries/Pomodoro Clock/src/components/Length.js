@@ -1,16 +1,18 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+
+import classes from './Length.module.css';
 
 const Length = props => {
     return (
-        <Fragment>
+        <div className={classes.Length}>
             <p>{props.lengthType}</p>
-            <div>
-                <i class="fas fa-arrow-up"></i>
+            <div className={classes.DisplayNumber}>
+                <i className="fas fa-arrow-up"></i>
                 <p>{props.length}</p>
-                <i class="fas fa-arrow-down"></i>
+                <i className="fas fa-arrow-down"></i>
             </div>
 
-        </Fragment>
+        </div>
     )
 };
 

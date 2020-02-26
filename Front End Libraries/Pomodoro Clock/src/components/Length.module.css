@@ -1,0 +1,22 @@
+.Length {
+    margin: 3rem;
+    font-size: 1.7rem;
+}
+
+.Length p {
+    margin: 0;
+}
+
+.DisplayNumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DisplayNumber p {
+    margin: 1rem;
+}
+
+.DisplayNumber i {
+    cursor: pointer;
+}

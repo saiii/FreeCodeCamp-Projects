@@ -12,7 +12,7 @@ const Clock = () => {
     return (
         <div className={classes.Clock}>
             <h1>Pomodoro Clock</h1>
-            <div>
+            <div className={classes.DisplayLength}>
                 <Length lengthType="Break Length" length={breakLength} />
                 <Length lengthType="Session Length" length={sessionLength} />
             </div>

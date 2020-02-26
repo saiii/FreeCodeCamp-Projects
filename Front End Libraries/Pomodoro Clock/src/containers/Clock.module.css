@@ -4,9 +4,19 @@
     height: 100vh;
     color: white;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .Clock h1 {
     margin: 0;
     font-size: 3rem;
+}
+
+.DisplayLength {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
