@@ -4,7 +4,7 @@ const Length = props => {
     return (
         <Fragment>
             <p>{props.lengthType}</p>
-            
+
         </Fragment>
     )
 };
