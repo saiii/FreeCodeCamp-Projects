@@ -8,7 +8,7 @@ const Length = props => {
             <p>{props.lengthType}</p>
             <div className={classes.DisplayNumber}>
                 <i className="fas fa-arrow-up"></i>
-                <p>{props.length}</p>
+                <p>{Math.floor(props.length/60)}</p>
                 <i className="fas fa-arrow-down"></i>
             </div>
 

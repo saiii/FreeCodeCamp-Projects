@@ -6,7 +6,7 @@ const Display = props => {
     return (
         <div className={classes.Display}>
             <p>Session</p>
-            <p>{props.length}</p>
+            <p>{Math.floor(props.length/60)}</p>
         </div>
     )
 };
