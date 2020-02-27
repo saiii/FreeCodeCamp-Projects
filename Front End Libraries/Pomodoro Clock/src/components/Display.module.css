@@ -1,0 +1,14 @@
+.Display {
+    border: 5px solid rgb(20, 18, 55);
+    border-radius: 40px;
+    font-size: 3rem;
+    padding: 1rem 3rem;
+}
+
+.Display p {
+    margin: 0.5rem;
+}
+
+.Display p:first-child {
+    font-size: 2rem;
+}
