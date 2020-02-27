@@ -10,9 +10,15 @@ const Clock = () => {
     const [breakLength, setBreakLength] = useState(300);
     const [running, setRunning] = useState(false);
 
-    const down = (SetType, type) => {
+    const down = (setType, type) => {
         if (type > 0) {
-            SetType(type - 60);
+            setType(type - 60);
+        }
+    }
+
+    const up = (setType, type) => {
+        if (type < 3600) {
+            setType(type + 60);
         }
     }
 
@@ -20,8 +26,18 @@ const Clock = () => {
         <div className={classes.Clock}>
             <h1>Pomodoro Clock</h1>
             <div className={classes.DisplayLength}>
-                <Length lengthType="Break Length" length={breakLength} down={() => down(setBreakLength, breakLength)} />
-                <Length lengthType="Session Length" length={sessionLength} down={() => down(setSessionLength, sessionLength)} />
+                <Length 
+                    lengthType="Break Length" 
+                    length={breakLength} 
+                    down={() => down(setBreakLength, breakLength)} 
+                    up={() => up(setBreakLength, breakLength)}
+                />
+                <Length 
+                    lengthType="Session Length" 
+                    length={sessionLength} 
+                    down={() => down(setSessionLength, sessionLength)} 
+                    up={() => up(setSessionLength, sessionLength)}
+                />
             </div>
             <Display length={sessionLength}/>
             <div className={classes.Setting}>

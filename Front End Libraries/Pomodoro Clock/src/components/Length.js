@@ -7,7 +7,7 @@ const Length = props => {
         <div className={classes.Length}>
             <p>{props.lengthType}</p>
             <div className={classes.DisplayNumber}>
-                <i className="fas fa-arrow-up"></i>
+                <i className="fas fa-arrow-up" onClick={() => props.up()}></i>
                 <p>{Math.floor(props.length/60)}</p>
                 <i className="fas fa-arrow-down" onClick={() => props.down()}></i>
             </div>
