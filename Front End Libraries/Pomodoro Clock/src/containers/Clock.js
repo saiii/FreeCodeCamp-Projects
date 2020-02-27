@@ -10,15 +10,18 @@ const Clock = () => {
     const [breakLength, setBreakLength] = useState(300);
     const [running, setRunning] = useState(false);
 
-
-    
+    const down = (SetType, type) => {
+        if (type > 0) {
+            SetType(type - 60);
+        }
+    }
 
     return (
         <div className={classes.Clock}>
             <h1>Pomodoro Clock</h1>
             <div className={classes.DisplayLength}>
-                <Length lengthType="Break Length" length={breakLength} />
-                <Length lengthType="Session Length" length={sessionLength} />
+                <Length lengthType="Break Length" length={breakLength} down={() => down(setBreakLength, breakLength)} />
+                <Length lengthType="Session Length" length={sessionLength} down={() => down(setSessionLength, sessionLength)} />
             </div>
             <Display length={sessionLength}/>
             <div className={classes.Setting}>
