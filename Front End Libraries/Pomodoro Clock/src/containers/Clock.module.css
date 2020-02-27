@@ -20,3 +20,19 @@
     align-items: center;
     justify-content: center;
 }
+
+.Setting {
+    cursor: pointer;
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Play {
+    
+}
+
+.Setting div {
+    margin: 2rem;
+}

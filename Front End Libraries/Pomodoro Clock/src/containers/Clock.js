@@ -18,6 +18,15 @@ const Clock = () => {
                 <Length lengthType="Session Length" length={sessionLength} />
             </div>
             <Display length={sessionLength}/>
+            <div className={classes.Setting}>
+                <div className={classes.Play}>
+                    <i className="fas fa-play"></i>
+                    <i className="fas fa-pause"></i>
+                </div>
+                <div>
+                    <i className="fas fa-history"></i>
+                </div>
+            </div>
         </div>
     )
 };
