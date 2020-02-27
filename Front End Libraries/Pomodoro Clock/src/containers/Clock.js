@@ -10,6 +10,12 @@ const Clock = () => {
     const [breakLength, setBreakLength] = useState(300);
     const [running, setRunning] = useState(false);
 
+    const reset = () => {
+        setSessionLength(1500);
+        setBreakLength(300);
+        setRunning(false);
+    }
+
     const down = (setType, type) => {
         if (type > 0) {
             setType(type - 60);
@@ -50,7 +56,7 @@ const Clock = () => {
                     <i className="fas fa-play"></i>
                     <i className="fas fa-pause"></i>
                 </div>
-                <div>
+                <div onClick={() => reset()}>
                     <i className="fas fa-history"></i>
                 </div>
             </div>
