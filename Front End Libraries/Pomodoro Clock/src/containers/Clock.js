@@ -22,6 +22,11 @@ const Clock = () => {
         }
     }
 
+    const playPause = () => {
+        setRunning(!running);
+        console.log(running)
+    }
+
     return (
         <div className={classes.Clock}>
             <h1>Pomodoro Clock</h1>
@@ -41,7 +46,7 @@ const Clock = () => {
             </div>
             <Display length={sessionLength}/>
             <div className={classes.Setting}>
-                <div className={classes.Play}>
+                <div className={classes.Play} onClick={() => playPause()}>
                     <i className="fas fa-play"></i>
                     <i className="fas fa-pause"></i>
                 </div>
