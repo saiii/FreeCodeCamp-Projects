@@ -17,7 +17,7 @@ const Clock = () => {
     }
 
     const down = (setType, type) => {
-        if (type > 0) {
+        if (type > 60) {
             setType(type - 60);
         }
     }
