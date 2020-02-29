@@ -16,7 +16,7 @@ const Display = props => {
 
     return (
         <div id="clock" className={classes.Display}>
-            <p>Session</p>
+            <p>{props.displayText}</p>
             <p>{clocktify()}</p>
         </div>
     )

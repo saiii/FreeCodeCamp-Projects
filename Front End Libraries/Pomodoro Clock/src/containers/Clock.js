@@ -40,6 +40,16 @@ const Clock = () => {
     }
 
     useEffect(() => {
+        if (sessionLength === 0) {
+            setIsBreak(true);
+            setSessionLength(sessionSet);
+        }
+
+        if (breakLength === 0) {
+            setIsBreak(false);
+            setBreakLength(breakSet);
+        }
+
         if (running) {
             if (!isBreak) {
                 let counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
@@ -49,10 +59,14 @@ const Clock = () => {
                 setTimeout(() => {clearInterval(counting)}, 1000);
             }
         } 
-    }, [running, sessionLength, breakLength, isBreak])
+    }, [running, sessionLength, breakLength, isBreak, sessionSet, breakSet])
 
     const length = () => {
-        return !isBreak? sessionLength : breakLength;
+        return !isBreak ? sessionLength : breakLength;
+    }
+
+    const displayText = () => {
+        return !isBreak ? 'Session' : 'Break';
     }
 
     return (
@@ -72,7 +86,7 @@ const Clock = () => {
                     up={() => up(setSessionLength, sessionLength, setSessionSet, sessionSet)}
                 />
             </div>
-            <Display length={length()} />
+            <Display length={length()} displayText={displayText()}/>
             <div className={classes.Setting}>
                 <div className={classes.Play} onClick={() => playPause()}>
                     <i className="fas fa-play"></i>
