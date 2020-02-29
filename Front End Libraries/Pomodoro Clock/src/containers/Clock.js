@@ -17,6 +17,8 @@ const Clock = () => {
         setSessionLength(1500);
         setBreakLength(300);
         setRunning(false);
+        setSessionSet(1500);
+        setBreakSet(300);
     }
 
     const down = (setType, type, setTypeDefault, typeDefault) => {
