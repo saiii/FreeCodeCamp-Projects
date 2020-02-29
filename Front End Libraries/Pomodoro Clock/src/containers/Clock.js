@@ -55,7 +55,7 @@ const Clock = () => {
                 let counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
                 setTimeout(() => {clearInterval(counting)}, 1000);
             } else {
-                let counting = setInterval(() => {setSessionLength(breakLength - 1)}, 1000);
+                let counting = setInterval(() => {setBreakLength(breakLength - 1)}, 1000);
                 setTimeout(() => {clearInterval(counting)}, 1000);
             }
         } 
