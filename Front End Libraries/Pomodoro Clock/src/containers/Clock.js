@@ -40,16 +40,6 @@ const Clock = () => {
     }
 
     useEffect(() => {
-        if (sessionLength === 0) {
-            setIsBreak(true);
-            setSessionLength(sessionSet);
-        }
-
-        if (breakLength === 0) {
-            setIsBreak(false);
-            setBreakLength(breakSet);
-        }
-
         if (running) {
             if (!isBreak) {
                 let counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
@@ -59,7 +49,23 @@ const Clock = () => {
                 setTimeout(() => {clearInterval(counting)}, 1000);
             }
         } 
-    }, [running, sessionLength, breakLength, isBreak, sessionSet, breakSet])
+    }, [running, sessionLength, breakLength, isBreak])
+
+    useEffect(() => {
+        if (sessionLength === 0) {
+            setIsBreak(true);
+            setSessionLength(sessionSet); // This does not change the value of sessionLength
+            console.log(sessionSet)
+            console.log(sessionLength);
+        }
+
+        if (breakLength === 0) {
+            setIsBreak(false);
+            setBreakLength(breakSet); // This does not change the value of breakLength
+            console.log(breakSet)
+            console.log(breakLength);
+        }
+    }, [breakLength, breakSet, sessionLength, sessionSet]);
 
     const length = () => {
         return !isBreak ? sessionLength : breakLength;
