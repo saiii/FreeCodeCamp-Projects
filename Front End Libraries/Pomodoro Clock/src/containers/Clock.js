@@ -9,6 +9,7 @@ const Clock = () => {
     const [sessionLength, setSessionLength] = useState(1500);
     const [breakLength, setBreakLength] = useState(300);
     const [running, setRunning] = useState(false);
+    const [isBreak, setIsBreak] = useState(false);
 
     const reset = () => {
         setSessionLength(1500);
@@ -29,8 +30,17 @@ const Clock = () => {
     }
 
     const playPause = () => {
-        setRunning(!running);
         console.log(running)
+        setRunning(!running);
+        // if (running) {
+        //     const working = setInterval(() => {setSessionLength(sessionLength - 60)}, 1000);
+
+        // }
+        console.log(running)
+    }
+
+    const length = () => {
+        return !isBreak? sessionLength : breakLength;
     }
 
     return (
@@ -50,7 +60,7 @@ const Clock = () => {
                     up={() => up(setSessionLength, sessionLength)}
                 />
             </div>
-            <Display length={sessionLength}/>
+            <Display length={length()} />
             <div className={classes.Setting}>
                 <div className={classes.Play} onClick={() => playPause()}>
                     <i className="fas fa-play"></i>
