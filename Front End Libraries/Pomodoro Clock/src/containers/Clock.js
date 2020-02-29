@@ -34,13 +34,10 @@ const Clock = () => {
     }
 
     useEffect(() => {
-        let counting;
         if (running) {
-            counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
+            let counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
+            setTimeout(() => {clearInterval(counting)}, 1000);
         } 
-        if (!running) {
-            clearInterval(counting);
-        }
     }, [running, sessionLength])
 
     const length = () => {

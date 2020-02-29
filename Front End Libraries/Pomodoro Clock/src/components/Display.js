@@ -13,7 +13,7 @@ const Display = props => {
     clocktify();
 
     return (
-        <div className={classes.Display}>
+        <div id="clock" className={classes.Display}>
             <p>Session</p>
             <p>{clocktify()}</p>
         </div>
