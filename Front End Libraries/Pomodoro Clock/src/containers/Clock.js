@@ -10,6 +10,8 @@ const Clock = () => {
     const [breakLength, setBreakLength] = useState(300);
     const [running, setRunning] = useState(false);
     const [isBreak, setIsBreak] = useState(false);
+    const [sessionSet, setSessionSet] = useState(1500);
+    const [breakSet, setBreakSet] = useState(300);
 
     const reset = () => {
         setSessionLength(1500);
@@ -17,15 +19,17 @@ const Clock = () => {
         setRunning(false);
     }
 
-    const down = (setType, type) => {
+    const down = (setType, type, setTypeDefault, typeDefault) => {
         if (type > 60) {
             setType(type - 60);
+            setTypeDefault(typeDefault - 60);
         }
     }
 
-    const up = (setType, type) => {
+    const up = (setType, type, setTypeDefault, typeDefault) => {
         if (type < 3600) {
             setType(type + 60);
+            setTypeDefault(typeDefault + 60);
         }
     }
 
@@ -35,10 +39,15 @@ const Clock = () => {
 
     useEffect(() => {
         if (running) {
-            let counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
-            setTimeout(() => {clearInterval(counting)}, 1000);
+            if (!isBreak) {
+                let counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
+                setTimeout(() => {clearInterval(counting)}, 1000);
+            } else {
+                let counting = setInterval(() => {setSessionLength(breakLength - 1)}, 1000);
+                setTimeout(() => {clearInterval(counting)}, 1000);
+            }
         } 
-    }, [running, sessionLength])
+    }, [running, sessionLength, breakLength, isBreak])
 
     const length = () => {
         return !isBreak? sessionLength : breakLength;
@@ -50,15 +59,15 @@ const Clock = () => {
             <div className={classes.DisplayLength}>
                 <Length 
                     lengthType="Break Length" 
-                    length={breakLength} 
-                    down={() => down(setBreakLength, breakLength)} 
-                    up={() => up(setBreakLength, breakLength)}
+                    length={breakSet} 
+                    down={() => down(setBreakLength, breakLength, setBreakSet, breakSet)} 
+                    up={() => up(setBreakLength, breakLength, setBreakSet, breakSet)}
                 />
                 <Length 
                     lengthType="Session Length" 
-                    length={sessionLength} 
-                    down={() => down(setSessionLength, sessionLength)} 
-                    up={() => up(setSessionLength, sessionLength)}
+                    length={sessionSet} 
+                    down={() => down(setSessionLength, sessionLength, setSessionSet, sessionSet)} 
+                    up={() => up(setSessionLength, sessionLength, setSessionSet, sessionSet)}
                 />
             </div>
             <Display length={length()} />
