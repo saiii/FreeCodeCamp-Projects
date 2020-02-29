@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Length from '../components/Length';
 import Display from '../components/Display';
@@ -30,14 +30,18 @@ const Clock = () => {
     }
 
     const playPause = () => {
-        console.log(running)
-        setRunning(!running);
-        // if (running) {
-        //     const working = setInterval(() => {setSessionLength(sessionLength - 60)}, 1000);
-
-        // }
-        console.log(running)
+        setRunning(state => !state);
     }
+
+    useEffect(() => {
+        let counting;
+        if (running) {
+            counting = setInterval(() => {setSessionLength(sessionLength - 1)}, 1000);
+        } 
+        if (!running) {
+            clearInterval(counting);
+        }
+    }, [running, sessionLength])
 
     const length = () => {
         return !isBreak? sessionLength : breakLength;
@@ -74,4 +78,4 @@ const Clock = () => {
     )
 };
 
-export default Clock;
+export default React.memo(Clock);
