@@ -7,7 +7,9 @@ const Display = props => {
     const clocktify = () => {
         const minute = Math.floor(props.length / 60);
         const second = props.length % 60;
-        return `${minute.toFixed()}:${second.toFixed()}`;
+        const minuteText = minute.toFixed().length === 1 ? '0'.concat(minute.toFixed()) : minute.toFixed();
+        const secondText = second.toFixed().length === 1 ? '0'.concat(second.toFixed()) : second.toFixed();
+        return `${minuteText}:${secondText}`;
     };
 
     clocktify();
